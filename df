@@ -1,0 +1,1962 @@
+[33mcommit f2a51e822d464e6469918d57f50cdf7ffd37caca[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mall_comments[m[33m)[m
+Author: Miro <mike.almighty001@gmail.com>
+Date:   Sun Oct 10 12:57:28 2021 +0200
+
+    first upload
+
+[1mdiff --git a/.idea/.gitignore b/.idea/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..26d3352[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/.gitignore[m
+[36m@@ -0,0 +1,3 @@[m
+[32m+[m[32m# Default ignored files[m
+[32m+[m[32m/shelf/[m
+[32m+[m[32m/workspace.xml[m
+[1mdiff --git a/.idea/gradle.xml b/.idea/gradle.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..cfba03f[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/gradle.xml[m
+[36m@@ -0,0 +1,17 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project version="4">[m
+[32m+[m[32m  <component name="GradleMigrationSettings" migrationVersion="1" />[m
+[32m+[m[32m  <component name="GradleSettings">[m
+[32m+[m[32m    <option name="linkedExternalProjectsSettings">[m
+[32m+[m[32m      <GradleProjectSettings>[m
+[32m+[m[32m        <option name="distributionType" value="DEFAULT_WRAPPED" />[m
+[32m+[m[32m        <option name="externalProjectPath" value="$PROJECT_DIR$/demo" />[m
+[32m+[m[32m        <option name="modules">[m
+[32m+[m[32m          <set>[m
+[32m+[m[32m            <option value="$PROJECT_DIR$/demo" />[m
+[32m+[m[32m          </set>[m
+[32m+[m[32m        </option>[m
+[32m+[m[32m      </GradleProjectSettings>[m
+[32m+[m[32m    </option>[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..fdc392f[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/jarRepositories.xml[m
+[36m@@ -0,0 +1,20 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project version="4">[m
+[32m+[m[32m  <component name="RemoteRepositoriesConfiguration">[m
+[32m+[m[32m    <remote-repository>[m
+[32m+[m[32m      <option name="id" value="central" />[m
+[32m+[m[32m      <option name="name" value="Maven Central repository" />[m
+[32m+[m[32m      <option name="url" value="https://repo1.maven.org/maven2" />[m
+[32m+[m[32m    </remote-repository>[m
+[32m+[m[32m    <remote-repository>[m
+[32m+[m[32m      <option name="id" value="jboss.community" />[m
+[32m+[m[32m      <option name="name" value="JBoss Community repository" />[m
+[32m+[m[32m      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />[m
+[32m+[m[32m    </remote-repository>[m
+[32m+[m[32m    <remote-repository>[m
+[32m+[m[32m      <option name="id" value="MavenRepo" />[m
+[32m+[m[32m      <option name="name" value="MavenRepo" />[m
+[32m+[m[32m      <option name="url" value="https://repo.maven.apache.org/maven2/" />[m
+[32m+[m[32m    </remote-repository>[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/libraries-with-intellij-classes.xml b/.idea/libraries-with-intellij-classes.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..9fa3156[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/libraries-with-intellij-classes.xml[m
+[36m@@ -0,0 +1,65 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project version="4">[m
+[32m+[m[32m  <component name="libraries-with-intellij-classes">[m
+[32m+[m[32m    <option name="intellijApiContainingLibraries">[m
+[32m+[m[32m      <list>[m
+[32m+[m[32m        <LibraryCoordinatesState>[m
+[32m+[m[32m          <option name="artifactId" value="ideaIU" />[m
+[32m+[m[32m          <option name="groupId" value="com.jetbrains.intellij.idea" />[m
+[32m+[m[32m        </LibraryCoordinatesState>[m
+[32m+[m[32m        <LibraryCoordinatesState>[m
+[32m+[m[32m          <option name="artifactId" value="ideaIU" />[m
+[32m+[m[32m          <option name="groupId" value="com.jetbrains" />[m
+[32m+[m[32m        </LibraryCoordinatesState>[m
+[32m+[m[32m        <LibraryCoordinatesState>[m
+[32m+[m[32m          <option name="artifactId" value="ideaIC" />[m
+[32m+[m[32m          <option name="groupId" value="com.jetbrains.intellij.idea" />[m
+[32m+[m[32m        </LibraryCoordinatesState>[m
+[32m+[m[32m        <LibraryCoordinatesState>[m
+[32m+[m[32m          <option name="artifactId" value="ideaIC" />[m
+[32m+[m[32m          <option name="groupId" value="com.jetbrains" />[m
+[32m+[m[32m        </LibraryCoordinatesState>[m
+[32m+[m[32m        <LibraryCoordinatesState>[m
+[32m+[m[32m          <option name="artifactId" value="pycharmPY" />[m
+[32m+[m[32m          <option name="groupId" value="com.jetbrains.intellij.pycharm" />[m
+[32m+[m[32m        </LibraryCoordinatesState>[m
+[32m+[m[32m        <LibraryCoordinatesState>[m
+[32m+[m[32m          <option name="artifactId" value="pycharmPY" />[m
+[32m+[m[32m          <option name="groupId" value="com.jetbrains" />[m
+[32m+[m[32m        </LibraryCoordinatesState>[m
+[32m+[m[32m        <LibraryCoordinatesState>[m
+[32m+[m[32m          <option name="artifactId" value="pycharmPC" />[m
+[32m+[m[32m          <option name="groupId" value="com.jetbrains.intellij.pycharm" />[m
+[32m+[m[32m        </LibraryCoordinatesState>[m
+[32m+[m[32m        <LibraryCoordinatesState>[m
+[32m+[m[32m          <option name="artifactId" value="pycharmPC" />[m
+[32m+[m[32m          <option name="groupId" value="com.jetbrains" />[m
+[32m+[m[32m        </LibraryCoordinatesState>[m
+[32m+[m[32m        <LibraryCoordinatesState>[m
+[32m+[m[32m          <option name="artifactId" value="clion" />[m
+[32m+[m[32m          <option name="groupId" value="com.jetbrains.intellij.clion" />[m
+[32m+[m[32m        </LibraryCoordinatesState>[m
+[32m+[m[32m        <LibraryCoordinatesState>[m
+[32m+[m[32m          <option name="artifactId" value="clion" />[m
+[32m+[m[32m          <option name="groupId" value="com.jetbrains" />[m
+[32m+[m[32m        </LibraryCoordinatesState>[m
+[32m+[m[32m        <LibraryCoordinatesState>[m
+[32m+[m[32m          <option name="artifactId" value="riderRD" />[m
+[32m+[m[32m          <option name="groupId" value="com.jetbrains.intellij.rider" />[m
+[32m+[m[32m        </LibraryCoordinatesState>[m
+[32m+[m[32m        <LibraryCoordinatesState>[m
+[32m+[m[32m          <option name="artifactId" value="riderRD" />[m
+[32m+[m[32m          <option name="groupId" value="com.jetbrains" />[m
+[32m+[m[32m        </LibraryCoordinatesState>[m
+[32m+[m[32m        <LibraryCoordinatesState>[m
+[32m+[m[32m          <option name="artifactId" value="goland" />[m
+[32m+[m[32m          <option name="groupId" value="com.jetbrains.intellij.goland" />[m
+[32m+[m[32m        </LibraryCoordinatesState>[m
+[32m+[m[32m        <LibraryCoordinatesState>[m
+[32m+[m[32m          <option name="artifactId" value="goland" />[m
+[32m+[m[32m          <option name="groupId" value="com.jetbrains" />[m
+[32m+[m[32m        </LibraryCoordinatesState>[m
+[32m+[m[32m      </list>[m
+[32m+[m[32m    </option>[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/misc.xml b/.idea/misc.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..7e9fa3c[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/misc.xml[m
+[36m@@ -0,0 +1,5 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project version="4">[m
+[32m+[m[32m  <component name="ExternalStorageConfigurationManager" enabled="true" />[m
+[32m+[m[32m  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="openjdk-16" project-jdk-type="JavaSDK" />[m
+[32m+[m[32m</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/modules.xml b/.idea/modules.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..79ce95e[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/modules.xml[m
+[36m@@ -0,0 +1,8 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project version="4">[m
+[32m+[m[32m  <component name="ProjectModuleManager">[m
+[32m+[m[32m    <modules>[m
+[32m+[m[32m      <module fileurl="file://$PROJECT_DIR$/.idea/myDemo_DB.iml" filepath="$PROJECT_DIR$/.idea/myDemo_DB.iml" />[m
+[32m+[m[32m    </modules>[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/myDemo_DB.iml b/.idea/myDemo_DB.iml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d6ebd48[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/myDemo_DB.iml[m
+[36m@@ -0,0 +1,9 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<module type="JAVA_MODULE" version="4">[m
+[32m+[m[32m  <component name="NewModuleRootManager" inherit-compiler-output="true">[m
+[32m+[m[32m    <exclude-output />[m
+[32m+[m[32m    <content url="file://$MODULE_DIR$" />[m
+[32m+[m[32m    <orderEntry type="inheritedJdk" />[m
+[32m+[m[32m    <orderEntry type="sourceFolder" forTests="false" />[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</module>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e96534f[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/uiDesigner.xml[m
+[36m@@ -0,0 +1,124 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project version="4">[m
+[32m+[m[32m  <component name="Palette2">[m
+[32m+[m[32m    <group name="Swing">[m
+[32m+[m[32m      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.png" removable="false" auto-create-binding="false" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.png" removable="false" auto-create-binding="false" can-attach-label="true">[m
+[32m+[m[32m        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.png" removable="false" auto-create-binding="true" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />[m
+[32m+[m[32m        <initial-values>[m
+[32m+[m[32m          <property name="text" value="Button" />[m
+[32m+[m[32m        </initial-values>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.png" removable="false" auto-create-binding="true" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />[m
+[32m+[m[32m        <initial-values>[m
+[32m+[m[32m          <property name="text" value="RadioButton" />[m
+[32m+[m[32m        </initial-values>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.png" removable="false" auto-create-binding="true" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />[m
+[32m+[m[32m        <initial-values>[m
+[32m+[m[32m          <property name="text" value="CheckBox" />[m
+[32m+[m[32m        </initial-values>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.png" removable="false" auto-create-binding="false" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />[m
+[32m+[m[32m        <initial-values>[m
+[32m+[m[32m          <property name="text" value="Label" />[m
+[32m+[m[32m        </initial-values>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.png" removable="false" auto-create-binding="true" can-attach-label="true">[m
+[32m+[m[32m        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">[m
+[32m+[m[32m          <preferred-size width="150" height="-1" />[m
+[32m+[m[32m        </default-constraints>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.png" removable="false" auto-create-binding="true" can-attach-label="true">[m
+[32m+[m[32m        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">[m
+[32m+[m[32m          <preferred-size width="150" height="-1" />[m
+[32m+[m[32m        </default-constraints>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.png" removable="false" auto-create-binding="true" can-attach-label="true">[m
+[32m+[m[32m        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">[m
+[32m+[m[32m          <preferred-size width="150" height="-1" />[m
+[32m+[m[32m        </default-constraints>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.png" removable="false" auto-create-binding="true" can-attach-label="true">[m
+[32m+[m[32m        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">[m
+[32m+[m[32m          <preferred-size width="150" height="50" />[m
+[32m+[m[32m        </default-constraints>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.png" removable="false" auto-create-binding="true" can-attach-label="true">[m
+[32m+[m[32m        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">[m
+[32m+[m[32m          <preferred-size width="150" height="50" />[m
+[32m+[m[32m        </default-constraints>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.png" removable="false" auto-create-binding="true" can-attach-label="true">[m
+[32m+[m[32m        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">[m
+[32m+[m[32m          <preferred-size width="150" height="50" />[m
+[32m+[m[32m        </default-constraints>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.png" removable="false" auto-create-binding="true" can-attach-label="true">[m
+[32m+[m[32m        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.png" removable="false" auto-create-binding="true" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">[m
+[32m+[m[32m          <preferred-size width="150" height="50" />[m
+[32m+[m[32m        </default-constraints>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.png" removable="false" auto-create-binding="true" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">[m
+[32m+[m[32m          <preferred-size width="150" height="50" />[m
+[32m+[m[32m        </default-constraints>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.png" removable="false" auto-create-binding="true" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">[m
+[32m+[m[32m          <preferred-size width="150" height="50" />[m
+[32m+[m[32m        </default-constraints>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.png" removable="false" auto-create-binding="true" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">[m
+[32m+[m[32m          <preferred-size width="200" height="200" />[m
+[32m+[m[32m        </default-constraints>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.png" removable="false" auto-create-binding="false" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">[m
+[32m+[m[32m          <preferred-size width="200" height="200" />[m
+[32m+[m[32m        </default-constraints>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.png" removable="false" auto-create-binding="true" can-attach-label="true">[m
+[32m+[m[32m        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.png" removable="false" auto-create-binding="true" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.png" removable="false" auto-create-binding="false" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.png" removable="false" auto-create-binding="true" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.png" removable="false" auto-create-binding="false" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">[m
+[32m+[m[32m          <preferred-size width="-1" height="20" />[m
+[32m+[m[32m        </default-constraints>[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.png" removable="false" auto-create-binding="false" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.png" removable="false" auto-create-binding="true" can-attach-label="false">[m
+[32m+[m[32m        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />[m
+[32m+[m[32m      </item>[m
+[32m+[m[32m    </group>[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/demo.zip b/demo.zip[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6cdacaf[m
+Binary files /dev/null and b/demo.zip differ
+[1mdiff --git a/demo/.gitignore b/demo/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..c2065bc[m
+[1m--- /dev/null[m
+[1m+++ b/demo/.gitignore[m
+[36m@@ -0,0 +1,37 @@[m
+[32m+[m[32mHELP.md[m
+[32m+[m[32m.gradle[m
+[32m+[m[32mbuild/[m
+[32m+[m[32m!gradle/wrapper/gradle-wrapper.jar[m
+[32m+[m[32m!**/src/main/**/build/[m
+[32m+[m[32m!**/src/test/**/build/[m
+[32m+[m
+[32m+[m[32m### STS ###[m
+[32m+[m[32m.apt_generated[m
+[32m+[m[32m.classpath[m
+[32m+[m[32m.factorypath[m
+[32m+[m[32m.project[m
+[32m+[m[32m.settings[m
+[32m+[m[32m.springBeans[m
+[32m+[m[32m.sts4-cache[m
+[32m+[m[32mbin/[m
+[32m+[m[32m!**/src/main/**/bin/[m
+[32m+[m[32m!**/src/test/**/bin/[m
+[32m+[m
+[32m+[m[32m### IntelliJ IDEA ###[m
+[32m+[m[32m.idea[m
+[32m+[m[32m*.iws[m
+[32m+[m[32m*.iml[m
+[32m+[m[32m*.ipr[m
+[32m+[m[32mout/[m
+[32m+[m[32m!**/src/main/**/out/[m
+[32m+[m[32m!**/src/test/**/out/[m
+[32m+[m
+[32m+[m[32m### NetBeans ###[m
+[32m+[m[32m/nbproject/private/[m
+[32m+[m[32m/nbbuild/[m
+[32m+[m[32m/dist/[m
+[32m+[m[32m/nbdist/[m
+[32m+[m[32m/.nb-gradle/[m
+[32m+[m
+[32m+[m[32m### VS Code ###[m
+[32m+[m[32m.vscode/[m
+[1mdiff --git a/demo/build.gradle b/demo/build.gradle[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f335968[m
+[1m--- /dev/null[m
+[1m+++ b/demo/build.gradle[m
+[36m@@ -0,0 +1,25 @@[m
+[32m+[m[32mplugins {[m
+[32m+[m	[32mid 'org.springframework.boot' version '2.5.1'[m
+[32m+[m	[32mid 'io.spring.dependency-management' version '1.0.11.RELEASE'[m
+[32m+[m	[32mid 'java'[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mgroup = 'com.example'[m
+[32m+[m[32mversion = '0.0.1-SNAPSHOT'[m
+[32m+[m[32msourceCompatibility = '11'[m
+[32m+[m
+[32m+[m[32mrepositories {[m
+[32m+[m	[32mmavenCentral()[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mdependencies {[m
+[32m+[m	[32mimplementation 'org.springframework.boot:spring-boot-starter-data-jpa'[m
+[32m+[m	[32mimplementation 'org.springframework.boot:spring-boot-starter-web'[m
+[32m+[m	[32mimplementation 'org.springframework.boot:spring-boot-starter-validation'[m
+[32m+[m	[32mruntimeOnly 'org.postgresql:postgresql'[m
+[32m+[m	[32mtestImplementation 'org.springframework.boot:spring-boot-starter-test'[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mtest {[m
+[32m+[m	[32museJUnitPlatform()[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/gradle/wrapper/gradle-wrapper.jar b/demo/gradle/wrapper/gradle-wrapper.jar[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e708b1c[m
+Binary files /dev/null and b/demo/gradle/wrapper/gradle-wrapper.jar differ
+[1mdiff --git a/demo/gradle/wrapper/gradle-wrapper.properties b/demo/gradle/wrapper/gradle-wrapper.properties[m
+[1mnew file mode 100644[m
+[1mindex 0000000..3855bff[m
+[1m--- /dev/null[m
+[1m+++ b/demo/gradle/wrapper/gradle-wrapper.properties[m
+[36m@@ -0,0 +1,15 @@[m
+[32m+[m[32mdistributionBase=GRADLE_USER_HOME[m
+[32m+[m[32mdistributionPath=wrapper/dists[m
+[32m+[m[32mdistributionUrl=https\://services.gradle.org/distributions/gradle-7.0.2-bin.zip[m
+[32m+[m[32mzipStoreBase=GRADLE_USER_HOME[m
+[32m+[m[32mzipStorePath=wrapper/dists[m
+[32m+[m
+[32m+[m[32m#spring.datasource.url=jdbc:postgresql://localhost:5432/user[m
+[32m+[m[32m#spring.datasource.username= database_user[m
+[32m+[m[32m#spring.datasource.password= database_password[m
+[32m+[m[32m#spring.jpa.hibernate.ddl-auto=create-drop[m
+[32m+[m[32m#spring.jpa.show-sql=true[m
+[32m+[m[32m#spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect[m
+[32m+[m[32m#spring.jpa.properties.hibernate.format_sql=true[m
+[32m+[m[32m#[m
+[32m+[m
+[1mdiff --git a/demo/gradlew b/demo/gradlew[m
+[1mnew file mode 100644[m
+[1mindex 0000000..4f906e0[m
+[1m--- /dev/null[m
+[1m+++ b/demo/gradlew[m
+[36m@@ -0,0 +1,185 @@[m
+[32m+[m[32m#!/usr/bin/env sh[m
+[32m+[m
+[32m+[m[32m#[m
+[32m+[m[32m# Copyright 2015 the original author or authors.[m
+[32m+[m[32m#[m
+[32m+[m[32m# Licensed under the Apache License, Version 2.0 (the "License");[m
+[32m+[m[32m# you may not use this file except in compliance with the License.[m
+[32m+[m[32m# You may obtain a copy of the License at[m
+[32m+[m[32m#[m
+[32m+[m[32m#      https://www.apache.org/licenses/LICENSE-2.0[m
+[32m+[m[32m#[m
+[32m+[m[32m# Unless required by applicable law or agreed to in writing, software[m
+[32m+[m[32m# distributed under the License is distributed on an "AS IS" BASIS,[m
+[32m+[m[32m# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.[m
+[32m+[m[32m# See the License for the specific language governing permissions and[m
+[32m+[m[32m# limitations under the License.[m
+[32m+[m[32m#[m
+[32m+[m
+[32m+[m[32m##############################################################################[m
+[32m+[m[32m##[m
+[32m+[m[32m##  Gradle start up script for UN*X[m
+[32m+[m[32m##[m
+[32m+[m[32m##############################################################################[m
+[32m+[m
+[32m+[m[32m# Attempt to set APP_HOME[m
+[32m+[m[32m# Resolve links: $0 may be a link[m
+[32m+[m[32mPRG="$0"[m
+[32m+[m[32m# Need this for relative symlinks.[m
+[32m+[m[32mwhile [ -h "$PRG" ] ; do[m
+[32m+[m[32m    ls=`ls -ld "$PRG"`[m
+[32m+[m[32m    link=`expr "$ls" : '.*-> \(.*\)$'`[m
+[32m+[m[32m    if expr "$link" : '/.*' > /dev/null; then[m
+[32m+[m[32m        PRG="$link"[m
+[32m+[m[32m    else[m
+[32m+[m[32m        PRG=`dirname "$PRG"`"/$link"[m
+[32m+[m[32m    fi[m
+[32m+[m[32mdone[m
+[32m+[m[32mSAVED="`pwd`"[m
+[32m+[m[32mcd "`dirname \"$PRG\"`/" >/dev/null[m
+[32m+[m[32mAPP_HOME="`pwd -P`"[m
+[32m+[m[32mcd "$SAVED" >/dev/null[m
+[32m+[m
+[32m+[m[32mAPP_NAME="Gradle"[m
+[32m+[m[32mAPP_BASE_NAME=`basename "$0"`[m
+[32m+[m
+[32m+[m[32m# Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.[m
+[32m+[m[32mDEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'[m
+[32m+[m
+[32m+[m[32m# Use the maximum available, or set MAX_FD != -1 to use that value.[m
+[32m+[m[32mMAX_FD="maximum"[m
+[32m+[m
+[32m+[m[32mwarn () {[m
+[32m+[m[32m    echo "$*"[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mdie () {[m
+[32m+[m[32m    echo[m
+[32m+[m[32m    echo "$*"[m
+[32m+[m[32m    echo[m
+[32m+[m[32m    exit 1[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m# OS specific support (must be 'true' or 'false').[m
+[32m+[m[32mcygwin=false[m
+[32m+[m[32mmsys=false[m
+[32m+[m[32mdarwin=false[m
+[32m+[m[32mnonstop=false[m
+[32m+[m[32mcase "`uname`" in[m
+[32m+[m[32m  CYGWIN* )[m
+[32m+[m[32m    cygwin=true[m
+[32m+[m[32m    ;;[m
+[32m+[m[32m  Darwin* )[m
+[32m+[m[32m    darwin=true[m
+[32m+[m[32m    ;;[m
+[32m+[m[32m  MINGW* )[m
+[32m+[m[32m    msys=true[m
+[32m+[m[32m    ;;[m
+[32m+[m[32m  NONSTOP* )[m
+[32m+[m[32m    nonstop=true[m
+[32m+[m[32m    ;;[m
+[32m+[m[32mesac[m
+[32m+[m
+[32m+[m[32mCLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar[m
+[32m+[m
+[32m+[m
+[32m+[m[32m# Determine the Java command to use to start the JVM.[m
+[32m+[m[32mif [ -n "$JAVA_HOME" ] ; then[m
+[32m+[m[32m    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then[m
+[32m+[m[32m        # IBM's JDK on AIX uses strange locations for the executables[m
+[32m+[m[32m        JAVACMD="$JAVA_HOME/jre/sh/java"[m
+[32m+[m[32m    else[m
+[32m+[m[32m        JAVACMD="$JAVA_HOME/bin/java"[m
+[32m+[m[32m    fi[m
+[32m+[m[32m    if [ ! -x "$JAVACMD" ] ; then[m
+[32m+[m[32m        die "ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME[m
+[32m+[m
+[32m+[m[32mPlease set the JAVA_HOME variable in your environment to match the[m
+[32m+[m[32mlocation of your Java installation."[m
+[32m+[m[32m    fi[m
+[32m+[m[32melse[m
+[32m+[m[32m    JAVACMD="java"[m
+[32m+[m[32m    which java >/dev/null 2>&1 || die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.[m
+[32m+[m
+[32m+[m[32mPlease set the JAVA_HOME variable in your environment to match the[m
+[32m+[m[32mlocation of your Java installation."[m
+[32m+[m[32mfi[m
+[32m+[m
+[32m+[m[32m# Increase the maximum file descriptors if we can.[m
+[32m+[m[32mif [ "$cygwin" = "false" -a "$darwin" = "false" -a "$nonstop" = "false" ] ; then[m
+[32m+[m[32m    MAX_FD_LIMIT=`ulimit -H -n`[m
+[32m+[m[32m    if [ $? -eq 0 ] ; then[m
+[32m+[m[32m        if [ "$MAX_FD" = "maximum" -o "$MAX_FD" = "max" ] ; then[m
+[32m+[m[32m            MAX_FD="$MAX_FD_LIMIT"[m
+[32m+[m[32m        fi[m
+[32m+[m[32m        ulimit -n $MAX_FD[m
+[32m+[m[32m        if [ $? -ne 0 ] ; then[m
+[32m+[m[32m            warn "Could not set maximum file descriptor limit: $MAX_FD"[m
+[32m+[m[32m        fi[m
+[32m+[m[32m    else[m
+[32m+[m[32m        warn "Could not query maximum file descriptor limit: $MAX_FD_LIMIT"[m
+[32m+[m[32m    fi[m
+[32m+[m[32mfi[m
+[32m+[m
+[32m+[m[32m# For Darwin, add options to specify how the application appears in the dock[m
+[32m+[m[32mif $darwin; then[m
+[32m+[m[32m    GRADLE_OPTS="$GRADLE_OPTS \"-Xdock:name=$APP_NAME\" \"-Xdock:icon=$APP_HOME/media/gradle.icns\""[m
+[32m+[m[32mfi[m
+[32m+[m
+[32m+[m[32m# For Cygwin or MSYS, switch paths to Windows format before running java[m
+[32m+[m[32mif [ "$cygwin" = "true" -o "$msys" = "true" ] ; then[m
+[32m+[m[32m    APP_HOME=`cygpath --path --mixed "$APP_HOME"`[m
+[32m+[m[32m    CLASSPATH=`cygpath --path --mixed "$CLASSPATH"`[m
+[32m+[m
+[32m+[m[32m    JAVACMD=`cygpath --unix "$JAVACMD"`[m
+[32m+[m
+[32m+[m[32m    # We build the pattern for arguments to be converted via cygpath[m
+[32m+[m[32m    ROOTDIRSRAW=`find -L / -maxdepth 1 -mindepth 1 -type d 2>/dev/null`[m
+[32m+[m[32m    SEP=""[m
+[32m+[m[32m    for dir in $ROOTDIRSRAW ; do[m
+[32m+[m[32m        ROOTDIRS="$ROOTDIRS$SEP$dir"[m
+[32m+[m[32m        SEP="|"[m
+[32m+[m[32m    done[m
+[32m+[m[32m    OURCYGPATTERN="(^($ROOTDIRS))"[m
+[32m+[m[32m    # Add a user-defined pattern to the cygpath arguments[m
+[32m+[m[32m    if [ "$GRADLE_CYGPATTERN" != "" ] ; then[m
+[32m+[m[32m        OURCYGPATTERN="$OURCYGPATTERN|($GRADLE_CYGPATTERN)"[m
+[32m+[m[32m    fi[m
+[32m+[m[32m    # Now convert the arguments - kludge to limit ourselves to /bin/sh[m
+[32m+[m[32m    i=0[m
+[32m+[m[32m    for arg in "$@" ; do[m
+[32m+[m[32m        CHECK=`echo "$arg"|egrep -c "$OURCYGPATTERN" -`[m
+[32m+[m[32m        CHECK2=`echo "$arg"|egrep -c "^-"`                                 ### Determine if an option[m
+[32m+[m
+[32m+[m[32m        if [ $CHECK -ne 0 ] && [ $CHECK2 -eq 0 ] ; then                    ### Added a condition[m
+[32m+[m[32m            eval `echo args$i`=`cygpath --path --ignore --mixed "$arg"`[m
+[32m+[m[32m        else[m
+[32m+[m[32m            eval `echo args$i`="\"$arg\""[m
+[32m+[m[32m        fi[m
+[32m+[m[32m        i=`expr $i + 1`[m
+[32m+[m[32m    done[m
+[32m+[m[32m    case $i in[m
+[32m+[m[32m        0) set -- ;;[m
+[32m+[m[32m        1) set -- "$args0" ;;[m
+[32m+[m[32m        2) set -- "$args0" "$args1" ;;[m
+[32m+[m[32m        3) set -- "$args0" "$args1" "$args2" ;;[m
+[32m+[m[32m        4) set -- "$args0" "$args1" "$args2" "$args3" ;;[m
+[32m+[m[32m        5) set -- "$args0" "$args1" "$args2" "$args3" "$args4" ;;[m
+[32m+[m[32m        6) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" ;;[m
+[32m+[m[32m        7) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" ;;[m
+[32m+[m[32m        8) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" "$args7" ;;[m
+[32m+[m[32m        9) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" "$args7" "$args8" ;;[m
+[32m+[m[32m    esac[m
+[32m+[m[32mfi[m
+[32m+[m
+[32m+[m[32m# Escape application args[m
+[32m+[m[32msave () {[m
+[32m+[m[32m    for i do printf %s\\n "$i" | sed "s/'/'\\\\''/g;1s/^/'/;\$s/\$/' \\\\/" ; done[m
+[32m+[m[32m    echo " "[m
+[32m+[m[32m}[m
+[32m+[m[32mAPP_ARGS=`save "$@"`[m
+[32m+[m
+[32m+[m[32m# Collect all arguments for the java command, following the shell quoting and substitution rules[m
+[32m+[m[32meval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS "\"-Dorg.gradle.appname=$APP_BASE_NAME\"" -classpath "\"$CLASSPATH\"" org.gradle.wrapper.GradleWrapperMain "$APP_ARGS"[m
+[32m+[m
+[32m+[m[32mexec "$JAVACMD" "$@"[m
+[1mdiff --git a/demo/gradlew.bat b/demo/gradlew.bat[m
+[1mnew file mode 100644[m
+[1mindex 0000000..107acd3[m
+[1m--- /dev/null[m
+[1m+++ b/demo/gradlew.bat[m
+[36m@@ -0,0 +1,89 @@[m
+[32m+[m[32m@rem[m
+[32m+[m[32m@rem Copyright 2015 the original author or authors.[m
+[32m+[m[32m@rem[m
+[32m+[m[32m@rem Licensed under the Apache License, Version 2.0 (the "License");[m
+[32m+[m[32m@rem you may not use this file except in compliance with the License.[m
+[32m+[m[32m@rem You may obtain a copy of the License at[m
+[32m+[m[32m@rem[m
+[32m+[m[32m@rem      https://www.apache.org/licenses/LICENSE-2.0[m
+[32m+[m[32m@rem[m
+[32m+[m[32m@rem Unless required by applicable law or agreed to in writing, software[m
+[32m+[m[32m@rem distributed under the License is distributed on an "AS IS" BASIS,[m
+[32m+[m[32m@rem WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.[m
+[32m+[m[32m@rem See the License for the specific language governing permissions and[m
+[32m+[m[32m@rem limitations under the License.[m
+[32m+[m[32m@rem[m
+[32m+[m
+[32m+[m[32m@if "%DEBUG%" == "" @echo off[m
+[32m+[m[32m@rem ##########################################################################[m
+[32m+[m[32m@rem[m
+[32m+[m[32m@rem  Gradle startup script for Windows[m
+[32m+[m[32m@rem[m
+[32m+[m[32m@rem ##########################################################################[m
+[32m+[m
+[32m+[m[32m@rem Set local scope for the variables with windows NT shell[m
+[32m+[m[32mif "%OS%"=="Windows_NT" setlocal[m
+[32m+[m
+[32m+[m[32mset DIRNAME=%~dp0[m
+[32m+[m[32mif "%DIRNAME%" == "" set DIRNAME=.[m
+[32m+[m[32mset APP_BASE_NAME=%~n0[m
+[32m+[m[32mset APP_HOME=%DIRNAME%[m
+[32m+[m
+[32m+[m[32m@rem Resolve any "." and ".." in APP_HOME to make it shorter.[m
+[32m+[m[32mfor %%i in ("%APP_HOME%") do set APP_HOME=%%~fi[m
+[32m+[m
+[32m+[m[32m@rem Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.[m
+[32m+[m[32mset DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"[m
+[32m+[m
+[32m+[m[32m@rem Find java.exe[m
+[32m+[m[32mif defined JAVA_HOME goto findJavaFromJavaHome[m
+[32m+[m
+[32m+[m[32mset JAVA_EXE=java.exe[m
+[32m+[m[32m%JAVA_EXE% -version >NUL 2>&1[m
+[32m+[m[32mif "%ERRORLEVEL%" == "0" goto execute[m
+[32m+[m
+[32m+[m[32mecho.[m
+[32m+[m[32mecho ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.[m
+[32m+[m[32mecho.[m
+[32m+[m[32mecho Please set the JAVA_HOME variable in your environment to match the[m
+[32m+[m[32mecho location of your Java installation.[m
+[32m+[m
+[32m+[m[32mgoto fail[m
+[32m+[m
+[32m+[m[32m:findJavaFromJavaHome[m
+[32m+[m[32mset JAVA_HOME=%JAVA_HOME:"=%[m
+[32m+[m[32mset JAVA_EXE=%JAVA_HOME%/bin/java.exe[m
+[32m+[m
+[32m+[m[32mif exist "%JAVA_EXE%" goto execute[m
+[32m+[m
+[32m+[m[32mecho.[m
+[32m+[m[32mecho ERROR: JAVA_HOME is set to an invalid directory: %JAVA_HOME%[m
+[32m+[m[32mecho.[m
+[32m+[m[32mecho Please set the JAVA_HOME variable in your environment to match the[m
+[32m+[m[32mecho location of your Java installation.[m
+[32m+[m
+[32m+[m[32mgoto fail[m
+[32m+[m
+[32m+[m[32m:execute[m
+[32m+[m[32m@rem Setup the command line[m
+[32m+[m
+[32m+[m[32mset CLASSPATH=%APP_HOME%\gradle\wrapper\gradle-wrapper.jar[m
+[32m+[m
+[32m+[m
+[32m+[m[32m@rem Execute Gradle[m
+[32m+[m[32m"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% "-Dorg.gradle.appname=%APP_BASE_NAME%" -classpath "%CLASSPATH%" org.gradle.wrapper.GradleWrapperMain %*[m
+[32m+[m
+[32m+[m[32m:end[m
+[32m+[m[32m@rem End local scope for the variables with windows NT shell[m
+[32m+[m[32mif "%ERRORLEVEL%"=="0" goto mainEnd[m
+[32m+[m
+[32m+[m[32m:fail[m
+[32m+[m[32mrem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instead of[m
+[32m+[m[32mrem the _cmd.exe /c_ return code![m
+[32m+[m[32mif  not "" == "%GRADLE_EXIT_CONSOLE%" exit 1[m
+[32m+[m[32mexit /b 1[m
+[32m+[m
+[32m+[m[32m:mainEnd[m
+[32m+[m[32mif "%OS%"=="Windows_NT" endlocal[m
+[32m+[m
+[32m+[m[32m:omega[m
+[1mdiff --git a/demo/settings.gradle b/demo/settings.gradle[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0a383dd[m
+[1m--- /dev/null[m
+[1m+++ b/demo/settings.gradle[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32mrootProject.name = 'demo'[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/DemoApplication.java b/demo/src/main/java/com/example/demo/DemoApplication.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..64b538a[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/DemoApplication.java[m
+[36m@@ -0,0 +1,13 @@[m
+[32m+[m[32mpackage com.example.demo;[m
+[32m+[m
+[32m+[m[32mimport org.springframework.boot.SpringApplication;[m
+[32m+[m[32mimport org.springframework.boot.autoconfigure.SpringBootApplication;[m
+[32m+[m
+[32m+[m[32m@SpringBootApplication[m
+[32m+[m[32mpublic class DemoApplication {[m
+[32m+[m
+[32m+[m	[32mpublic static void main(String[] args) {[m
+[32m+[m		[32mSpringApplication.run(DemoApplication.class, args);[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/config/ConsumerConfig.java b/demo/src/main/java/com/example/demo/config/ConsumerConfig.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..acadb00[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/config/ConsumerConfig.java[m
+[36m@@ -0,0 +1,39 @@[m
+[32m+[m[32mpackage com.example.demo.config;[m
+[32m+[m
+[32m+[m[32mimport com.example.demo.model.Consumer;[m
+[32m+[m[32mimport com.example.demo.rep.ConsumerRepository;[m
+[32m+[m[32mimport org.springframework.boot.CommandLineRunner;[m
+[32m+[m[32mimport org.springframework.context.annotation.Bean;[m
+[32m+[m[32mimport org.springframework.context.annotation.Configuration;[m
+[32m+[m[32mimport org.springframework.core.env.CommandLinePropertySource;[m
+[32m+[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m
+[32m+[m[32m@Configuration[m
+[32m+[m[32mpublic class ConsumerConfig {[m
+[32m+[m
+[32m+[m[32m    @Bean[m
+[32m+[m[32m    CommandLineRunner commandLineRunner(ConsumerRepository   repository){[m
+[32m+[m[32m        return args -> {[m
+[32m+[m[32m            Consumer bob = new Consumer([m
+[32m+[m[32m                    "Bob",[m
+[32m+[m[32m                    "bob@gmail.com",[m
+[32m+[m[32m                    25[m
+[32m+[m
+[32m+[m[32m            );[m
+[32m+[m
+[32m+[m[32m            Consumer pete = new Consumer([m
+[32m+[m[32m                    "Pete",[m
+[32m+[m[32m                    "pete@gmail.com",[m
+[32m+[m[32m                    26[m
+[32m+[m
+[32m+[m[32m            );[m
+[32m+[m
+[32m+[m[32m            repository.saveAll([m
+[32m+[m[32m                    List.of(bob, pete)[m
+[32m+[m[32m            );[m
+[32m+[m[32m        };[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/config/ProductConfig.java b/demo/src/main/java/com/example/demo/config/ProductConfig.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d415d85[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/config/ProductConfig.java[m
+[36m@@ -0,0 +1,40 @@[m
+[32m+[m[32mpackage com.example.demo.config;[m
+[32m+[m
+[32m+[m
+[32m+[m[32mimport com.example.demo.model.Consumer;[m
+[32m+[m[32mimport com.example.demo.model.Product;[m
+[32m+[m[32mimport com.example.demo.rep.ConsumerRepository;[m
+[32m+[m[32mimport com.example.demo.rep.ProductRepository;[m
+[32m+[m[32mimport org.springframework.boot.CommandLineRunner;[m
+[32m+[m[32mimport org.springframework.context.annotation.Bean;[m
+[32m+[m[32mimport org.springframework.context.annotation.Configuration;[m
+[32m+[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m
+[32m+[m[32m@Configuration[m
+[32m+[m[32mpublic class ProductConfig {[m
+[32m+[m
+[32m+[m[32m    @Bean[m
+[32m+[m[32m    CommandLineRunner commandLineRunnerProduct(ProductRepository repository){[m
+[32m+[m[32m        return args -> {[m
+[32m+[m[32m            Product item_1 = new Product([m
+[32m+[m[32m//                    1L,[m
+[32m+[m[32m                    "item_1",[m
+[32m+[m[32m                    25[m
+[32m+[m
+[32m+[m[32m            );[m
+[32m+[m
+[32m+[m[32m            Product item_2 = new Product([m
+[32m+[m[32m//                    2L,[m
+[32m+[m[32m                    "item_2",[m
+[32m+[m[32m                    26[m
+[32m+[m
+[32m+[m[32m            );[m
+[32m+[m
+[32m+[m[32m            repository.saveAll([m
+[32m+[m[32m                    List.of(item_1, item_2)[m
+[32m+[m[32m            );[m
+[32m+[m[32m        };[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/controller/ConsumerController.java b/demo/src/main/java/com/example/demo/controller/ConsumerController.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..22330a5[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/controller/ConsumerController.java[m
+[36m@@ -0,0 +1,49 @@[m
+[32m+[m[32mpackage com.example.demo.controller;[m
+[32m+[m
+[32m+[m[32mimport com.example.demo.model.Consumer;[m
+[32m+[m[32mimport com.example.demo.service.ConsumerService;[m
+[32m+[m[32mimport org.springframework.beans.factory.annotation.Autowired;[m
+[32m+[m[32mimport org.springframework.web.bind.annotation.*;[m
+[32m+[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m
+[32m+[m[32m@RestController[m
+[32m+[m[32m@RequestMapping(path = "api/v1/users")[m
+[32m+[m[32mpublic class ConsumerController {[m
+[32m+[m
+[32m+[m[32m    private final ConsumerService consumerService;[m
+[32m+[m
+[32m+[m[32m    @Autowired[m
+[32m+[m[32m    public ConsumerController(ConsumerService consumerService) {[m
+[32m+[m[32m        this.consumerService = consumerService;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @GetMapping[m
+[32m+[m[32m    public List<Consumer> getConsumers(){[m
+[32m+[m[32m        return consumerService.getConsumers();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @PostMapping[m
+[32m+[m[32m    public void registerNewConsumer (@RequestBody Consumer consumer) {[m
+[32m+[m[32m        consumerService.addNewConsumer(consumer);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @DeleteMapping(path = "{consumerId}")[m
+[32m+[m[32m    public void deleteConsumer(@PathVariable("consumerId") Long consumerId) {[m
+[32m+[m[32m        consumerService.deleteConsumer(consumerId);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @PutMapping(path = "{consumerId}")[m
+[32m+[m[32m    public Consumer updateConsumer( @RequestBody Consumer consumer[m
+[32m+[m[32m//            @PathVariable("consumerId") Long consumerId,[m
+[32m+[m[32m//            @RequestParam (required = false) String name,[m
+[32m+[m[32m//            @RequestParam (required = false) String email[m
+[32m+[m[32m            // @RequestParam (required = false)[m
+[32m+[m[32m    )[m
+[32m+[m[32m    {[m
+[32m+[m
+[32m+[m[32m        return consumerService.updateConsumer(consumer);[m
+[32m+[m[32m        //return consumerService.updateConsumer(consumerId, name, email);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/controller/ProductController.java b/demo/src/main/java/com/example/demo/controller/ProductController.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..89742d2[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/controller/ProductController.java[m
+[36m@@ -0,0 +1,42 @@[m
+[32m+[m[32mpackage com.example.demo.controller;[m
+[32m+[m
+[32m+[m
+[32m+[m[32mimport com.example.demo.model.Consumer;[m
+[32m+[m[32mimport com.example.demo.model.Product;[m
+[32m+[m[32mimport com.example.demo.service.ConsumerService;[m
+[32m+[m[32mimport com.example.demo.service.ProductService;[m
+[32m+[m[32mimport org.springframework.beans.factory.annotation.Autowired;[m
+[32m+[m[32mimport org.springframework.validation.annotation.Validated;[m
+[32m+[m[32mimport org.springframework.web.bind.annotation.*;[m
+[32m+[m
+[32m+[m[32mimport javax.validation.Valid;[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m
+[32m+[m[32m@RestController[m
+[32m+[m[32m@RequestMapping(path = "api/v1/products")[m
+[32m+[m[32m@Validated[m
+[32m+[m[32mpublic class ProductController {[m
+[32m+[m
+[32m+[m[32m    private final ProductService productService;[m
+[32m+[m
+[32m+[m[32m    @Autowired[m
+[32m+[m[32m    public ProductController(ProductService productService) {[m
+[32m+[m[32m        this.productService = productService;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @GetMapping[m
+[32m+[m[32m    public List<Product> getProducts(){[m
+[32m+[m[32m        return productService.getProducts();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @PostMapping[m
+[32m+[m[32m    public void registerNewProduct (@Valid @RequestBody Product product) {[m
+[32m+[m[32m        productService.addNewProduct(product);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @DeleteMapping(path = "{productId}")[m
+[32m+[m[32m    public void deleteConsumer(@PathVariable("productId") Long productId) {[m
+[32m+[m[32m        productService.deleteProduct(productId);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/controller/PurchaseOrderController.java b/demo/src/main/java/com/example/demo/controller/PurchaseOrderController.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..42ea50f[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/controller/PurchaseOrderController.java[m
+[36m@@ -0,0 +1,83 @@[m
+[32m+[m[32mpackage com.example.demo.controller;[m
+[32m+[m
+[32m+[m
+[32m+[m[32mimport com.example.demo.exception.CustomRestServiceException;[m
+[32m+[m[32mimport com.example.demo.model.Consumer;[m
+[32m+[m[32mimport com.example.demo.model.CreateOrder;[m
+[32m+[m[32mimport com.example.demo.model.Product;[m
+[32m+[m[32mimport com.example.demo.model.PurchaseOrder;[m
+[32m+[m[32mimport com.example.demo.service.ConsumerService;[m
+[32m+[m[32mimport com.example.demo.service.ProductService;[m
+[32m+[m[32mimport com.example.demo.service.PurchaseOrderService;[m
+[32m+[m[32mimport org.springframework.beans.factory.annotation.Autowired;[m
+[32m+[m[32mimport org.springframework.http.HttpStatus;[m
+[32m+[m[32mimport org.springframework.web.bind.annotation.*;[m
+[32m+[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m[32mimport java.util.Optional;[m
+[32m+[m
+[32m+[m[32m@RestController[m
+[32m+[m[32m@RequestMapping(path = "api/v1/orders")[m
+[32m+[m[32mpublic class PurchaseOrderController {[m
+[32m+[m
+[32m+[m[32m    private PurchaseOrderService purchaseOrderService;[m
+[32m+[m
+[32m+[m[32m    @Autowired[m
+[32m+[m[32m    public PurchaseOrderController(PurchaseOrderService purchaseOrderService) {[m
+[32m+[m[32m        this.purchaseOrderService = purchaseOrderService;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @Autowired[m
+[32m+[m[32m    ConsumerService consumerService;[m
+[32m+[m
+[32m+[m[32m    @Autowired[m
+[32m+[m[32m    ProductService productService;[m
+[32m+[m
+[32m+[m[32m    @ResponseStatus(value= HttpStatus.NOT_FOUND, reason="No such Consumer")  // 404[m
+[32m+[m[32m    public class OrderNotFoundException extends RuntimeException {[m
+[32m+[m[32m        // ...[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @GetMapping[m
+[32m+[m[32m    public List<PurchaseOrder> getPurchaseOrders(){[m
+[32m+[m[32m        return purchaseOrderService.getPurchaseOrders();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @PostMapping[m
+[32m+[m[32m    public void registerNewPurchaseOrder (@RequestBody CreateOrder createOrder[m
+[32m+[m[32m           /* String description, Long consumer_id, Long product_id*/) throws CustomRestServiceException {[m
+[32m+[m
+[32m+[m[32m/*[m
+[32m+[m[32m          PurchaseOrder po = new PurchaseOrder();[m
+[32m+[m[32m//        purchaseOrder.setId(1L);[m
+[32m+[m[32m//        purchaseOrder.setDescription(description);[m
+[32m+[m[32m          po.setDescription(createOrder.getDescription());[m
+[32m+[m[32m          Optional<Consumer> consumerOptional = Optional.ofNullable(consumerService.getConsumerById(createOrder.getConsumerId()));[m
+[32m+[m[32m          if (consumerOptional.isEmpty()) {[m
+[32m+[m[32m              throw new IllegalStateException("User does not exist");[m
+[32m+[m[32m        }[m
+[32m+[m[32m    */[m
+[32m+[m[32m        Consumer consumer = consumerService.getConsumerById(createOrder.getConsumerId());[m
+[32m+[m[32m        if (consumer == null) throw new OrderNotFoundException();[m
+[32m+[m[32m//        boolean exists = consumerService.existsById(consumerId);[m
+[32m+[m[32m//        if (!exists){[m
+[32m+[m[32m//            throw new IllegalStateException("consumer with id " + consumerId + " does not exist");[m
+[32m+[m[32m//        }[m
+[32m+[m[32m /*         po.setConsumer(consumerService.getConsumerById(createOrder.getConsumerId()));[m
+[32m+[m
+[32m+[m[32m        Optional<Product> productOptional = Optional.ofNullable(productService.getProductById(createOrder.getProductId()));[m
+[32m+[m[32m        if (productOptional.isEmpty()) {[m
+[32m+[m[32m            throw new IllegalStateException("Product does not exist");[m
+[32m+[m[32m        }[m
+[32m+[m[32m          po.setProduct(productService.getProductById(createOrder.getProductId()));[m
+[32m+[m[32m*/[m
+[32m+[m[32m          purchaseOrderService.addNewPurchaseOrder(createOrder) ;[m
+[32m+[m[32m//        purchaseOrderService.addNewPurchaseOrder(description, consumer_id, product_id);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/exception/ApiErrorResponse.java b/demo/src/main/java/com/example/demo/exception/ApiErrorResponse.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..774fe2b[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/exception/ApiErrorResponse.java[m
+[36m@@ -0,0 +1,104 @@[m
+[32m+[m[32mpackage com.example.demo.exception;[m
+[32m+[m
+[32m+[m[32mimport org.springframework.http.HttpStatus;[m
+[32m+[m
+[32m+[m[32mimport java.time.LocalDateTime;[m
+[32m+[m
+[32m+[m[32mpublic class ApiErrorResponse {[m
+[32m+[m
+[32m+[m[32m    private HttpStatus status;[m
+[32m+[m[32m    private String error_code;[m
+[32m+[m[32m    private String message;[m
+[32m+[m[32m    private String detail;[m
+[32m+[m[32m    private LocalDateTime timeStamp;[m
+[32m+[m
+[32m+[m[32m    public static final class ApiErrorResponseBuilder {[m
+[32m+[m[32m        private HttpStatus status;[m
+[32m+[m[32m        private String error_code;[m
+[32m+[m[32m        private String message;[m
+[32m+[m[32m        private String detail;[m
+[32m+[m[32m        private LocalDateTime timeStamp;[m
+[32m+[m
+[32m+[m[32m        public ApiErrorResponseBuilder() {[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        public static ApiErrorResponseBuilder anApiErrorResponse() {[m
+[32m+[m[32m            return new ApiErrorResponseBuilder();[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        public ApiErrorResponseBuilder withStatus(HttpStatus status) {[m
+[32m+[m[32m            this.status = status;[m
+[32m+[m[32m            return this;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        public ApiErrorResponseBuilder withError_code(String error_code) {[m
+[32m+[m[32m            this.error_code = error_code;[m
+[32m+[m[32m            return this;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        public ApiErrorResponseBuilder withMessage(String message) {[m
+[32m+[m[32m            this.message = message;[m
+[32m+[m[32m            return this;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        public ApiErrorResponseBuilder withDetail(String detail) {[m
+[32m+[m[32m            this.detail = detail;[m
+[32m+[m[32m            return this;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        public ApiErrorResponseBuilder atTime(LocalDateTime timeStamp) {[m
+[32m+[m[32m            this.timeStamp = timeStamp;[m
+[32m+[m[32m            return this;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public ApiErrorResponse build() {[m
+[32m+[m[32m            ApiErrorResponse apiErrorResponse = new ApiErrorResponse();[m
+[32m+[m[32m            apiErrorResponse.status = this.status;[m
+[32m+[m[32m            apiErrorResponse.error_code = this.error_code;[m
+[32m+[m[32m            apiErrorResponse.detail = this.detail;[m
+[32m+[m[32m            apiErrorResponse.message = this.message;[m
+[32m+[m[32m            apiErrorResponse.timeStamp = this.timeStamp;[m
+[32m+[m[32m            return apiErrorResponse;[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public HttpStatus getStatus() {[m
+[32m+[m[32m        return status;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setStatus(HttpStatus status) {[m
+[32m+[m[32m        this.status = status;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getError_code() {[m
+[32m+[m[32m        return error_code;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setError_code(String error_code) {[m
+[32m+[m[32m        this.error_code = error_code;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getMessage() {[m
+[32m+[m[32m        return message;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setMessage(String message) {[m
+[32m+[m[32m        this.message = message;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getDetail() {[m
+[32m+[m[32m        return detail;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setDetail(String detail) {[m
+[32m+[m[32m        this.detail = detail;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public LocalDateTime getTimeStamp() {[m
+[32m+[m[32m        return timeStamp;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setTimeStamp(LocalDateTime timeStamp) {[m
+[32m+[m[32m        this.timeStamp = timeStamp;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/exception/ConsumerNotFoundException.java b/demo/src/main/java/com/example/demo/exception/ConsumerNotFoundException.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a2ee15c[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/exception/ConsumerNotFoundException.java[m
+[36m@@ -0,0 +1,17 @@[m
+[32m+[m[32mpackage com.example.demo.exception;[m
+[32m+[m
+[32m+[m[32mpublic class ConsumerNotFoundException extends Exception{[m
+[32m+[m
+[32m+[m[32m    public ConsumerNotFoundException() {[m
+[32m+[m[32m        super();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public ConsumerNotFoundException(String message) {[m
+[32m+[m[32m        super(message);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public ConsumerNotFoundException(String message, Throwable cause) {[m
+[32m+[m[32m        super(message, cause);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/exception/CustomRestServiceException.java b/demo/src/main/java/com/example/demo/exception/CustomRestServiceException.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..01a00a3[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/exception/CustomRestServiceException.java[m
+[36m@@ -0,0 +1,17 @@[m
+[32m+[m[32mpackage com.example.demo.exception;[m
+[32m+[m
+[32m+[m[32mpublic class CustomRestServiceException extends Exception{[m
+[32m+[m
+[32m+[m[32m    public CustomRestServiceException() {[m
+[32m+[m[32m        super();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public CustomRestServiceException(String message) {[m
+[32m+[m[32m        super(message);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public CustomRestServiceException(String message, Throwable cause) {[m
+[32m+[m[32m        super(message, cause);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/exception/GlobalRestExceptionHandler.java b/demo/src/main/java/com/example/demo/exception/GlobalRestExceptionHandler.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..bbe20e4[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/exception/GlobalRestExceptionHandler.java[m
+[36m@@ -0,0 +1,80 @@[m
+[32m+[m[32mpackage com.example.demo.exception;[m
+[32m+[m
+[32m+[m[32mimport org.springframework.http.HttpHeaders;[m
+[32m+[m[32mimport org.springframework.http.HttpStatus;[m
+[32m+[m[32mimport org.springframework.http.ResponseEntity;[m
+[32m+[m[32mimport org.springframework.web.bind.MethodArgumentNotValidException;[m
+[32m+[m[32mimport org.springframework.web.bind.annotation.ControllerAdvice;[m
+[32m+[m[32mimport org.springframework.web.bind.annotation.ExceptionHandler;[m
+[32m+[m[32mimport org.springframework.web.context.request.WebRequest;[m
+[32m+[m[32mimport org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;[m
+[32m+[m[32mimport org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;[m
+[32m+[m
+[32m+[m[32mimport java.time.LocalDateTime;[m
+[32m+[m[32mimport java.time.ZoneOffset;[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m[32mimport java.util.stream.Collectors;[m
+[32m+[m
+[32m+[m[32m@ControllerAdvice[m
+[32m+[m[32mpublic class GlobalRestExceptionHandler extends ResponseEntityExceptionHandler {[m
+[32m+[m
+[32m+[m[32m    @ExceptionHandler({ConsumerNotFoundException.class})[m
+[32m+[m[32m    public ResponseEntity<ApiErrorResponse> customerNotFound(ConsumerNotFoundException ex, WebRequest request){[m
+[32m+[m[32m        ApiErrorResponse apiResponse =new ApiErrorResponse[m
+[32m+[m[32m                .ApiErrorResponseBuilder()[m
+[32m+[m[32m                .withDetail("Not able to find consumer record")[m
+[32m+[m[32m                .withMessage("Not a valid user id. Please provide a valid user id or contact system admin.")[m
+[32m+[m[32m                .withError_code("404")[m
+[32m+[m[32m                .withStatus(HttpStatus.NOT_FOUND)[m
+[32m+[m[32m                .atTime(LocalDateTime.now(ZoneOffset.UTC))[m
+[32m+[m[32m                .build();[m
+[32m+[m[32m        return new ResponseEntity<ApiErrorResponse>(apiResponse, HttpStatus.NOT_FOUND);[m
+[32m+[m
+[32m+[m[32m        //We can define other handlers based on Exception types[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    @ExceptionHandler({MethodArgumentTypeMismatchException.class})[m
+[32m+[m[32m    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request){[m
+[32m+[m
+[32m+[m[32m        // let's get all validation error and send it across[m
+[32m+[m[32m        List<String> errorMsg= ex.getBindingResult().getFieldErrors().stream().map(e->e.getDefaultMessage()).collect(Collectors.toList());[m
+[32m+[m[32m        ApiErrorResponse response =new ApiErrorResponse.ApiErrorResponseBuilder()[m
+[32m+[m[32m                .withStatus(status)[m
+[32m+[m[32m                .withDetail("not valid arguments")[m
+[32m+[m[32m                .withMessage(errorMsg.toString())[m
+[32m+[m[32m                .withError_code("406")[m
+[32m+[m[32m                .withError_code(status.NOT_ACCEPTABLE.name())[m
+[32m+[m[32m                .atTime(LocalDateTime.now(ZoneOffset.UTC))[m
+[32m+[m[32m                .build();[m
+[32m+[m[32m        return new ResponseEntity<>(response, response.getStatus());[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @ExceptionHandler(CustomRestServiceException.class)[m
+[32m+[m[32m    protected ResponseEntity<Object> handleCustomAPIException(CustomRestServiceException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {[m
+[32m+[m
+[32m+[m[32m        ApiErrorResponse response =new ApiErrorResponse.ApiErrorResponseBuilder()[m
+[32m+[m[32m                .withStatus(status)[m
+[32m+[m[32m                .withDetail("custom exception")[m
+[32m+[m[32m                .withMessage(ex.getLocalizedMessage())[m
+[32m+[m[32m                .withError_code("503")[m
+[32m+[m[32m                .withError_code(status.SERVICE_UNAVAILABLE.name())[m
+[32m+[m[32m                .atTime(LocalDateTime.now(ZoneOffset.UTC))[m
+[32m+[m[32m                .build();[m
+[32m+[m[32m        return new ResponseEntity<>(response, response.getStatus());[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @ExceptionHandler(Exception.class)[m
+[32m+[m[32m    protected ResponseEntity<Object> handleCustomAPIException(Exception ex, HttpHeaders headers, HttpStatus status, WebRequest request) {[m
+[32m+[m
+[32m+[m[32m        ApiErrorResponse response =new ApiErrorResponse.ApiErrorResponseBuilder()[m
+[32m+[m[32m                .withStatus(status)[m
+[32m+[m[32m                .withDetail("Something went wrong")[m
+[32m+[m[32m                .withMessage(ex.getLocalizedMessage())[m
+[32m+[m[32m                .withError_code("502")[m
+[32m+[m[32m                .withError_code(status.BAD_GATEWAY.name())[m
+[32m+[m[32m                .atTime(LocalDateTime.now(ZoneOffset.UTC))[m
+[32m+[m[32m                .build();[m
+[32m+[m[32m        return new ResponseEntity<>(response, response.getStatus());[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/model/Consumer.java b/demo/src/main/java/com/example/demo/model/Consumer.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a967e4b[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/model/Consumer.java[m
+[36m@@ -0,0 +1,105 @@[m
+[32m+[m[32mpackage com.example.demo.model;[m
+[32m+[m
+[32m+[m[32mimport com.fasterxml.jackson.annotation.JsonBackReference;[m
+[32m+[m[32mimport com.fasterxml.jackson.annotation.JsonManagedReference;[m
+[32m+[m[32mimport org.hibernate.annotations.LazyCollection;[m
+[32m+[m[32mimport org.hibernate.annotations.LazyCollectionOption;[m
+[32m+[m
+[32m+[m[32mimport javax.persistence.*;[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m
+[32m+[m[32m@Entity[m
+[32m+[m[32m@Table[m
+[32m+[m[32mpublic class Consumer {[m
+[32m+[m[32m    @Id[m
+[32m+[m[32m    @Column(name = "consumer_id")[m
+[32m+[m[32m    @SequenceGenerator([m
+[32m+[m[32m            name = "consumer_sequence",[m
+[32m+[m[32m            sequenceName = "consumer_sequence",[m
+[32m+[m[32m            allocationSize = 1[m
+[32m+[m[32m    )[m
+[32m+[m[32m    @GeneratedValue([m
+[32m+[m[32m            strategy = GenerationType.SEQUENCE,[m
+[32m+[m[32m            generator = "consumer_sequence"[m
+[32m+[m[32m    )[m
+[32m+[m[32m    private Long id;[m
+[32m+[m
+[32m+[m[32m    private String name;[m
+[32m+[m[32m    private String email;[m
+[32m+[m[32m    private int age;[m
+[32m+[m
+[32m+[m[32m//    @OneToMany(mappedBy="consumer")[m
+[32m+[m[32m//    @LazyCollection(LazyCollectionOption.FALSE)[m
+[32m+[m[32m    @OneToMany(mappedBy = "consumer")[m
+[32m+[m[32m    @LazyCollection(LazyCollectionOption.FALSE)[m
+[32m+[m[32m    private List<PurchaseOrder> orders;[m
+[32m+[m
+[32m+[m[32m    public Consumer() {[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public Consumer(Long id, String name, String email, int age) {[m
+[32m+[m[32m        this.id = id;[m
+[32m+[m[32m        this.name = name;[m
+[32m+[m[32m        this.email = email;[m
+[32m+[m[32m        this.age = age;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public Consumer(String name, String email, int age) {[m
+[32m+[m[32m        this.name = name;[m
+[32m+[m[32m        this.email = email;[m
+[32m+[m[32m        this.age = age;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public Long getId() {[m
+[32m+[m[32m        return id;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setId(Long id) {[m
+[32m+[m[32m        this.id = id;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getName() {[m
+[32m+[m[32m        return name;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setName(String name) {[m
+[32m+[m[32m        this.name = name;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getEmail() {[m
+[32m+[m[32m        return email;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setEmail(String email) {[m
+[32m+[m[32m        this.email = email;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public int getAge() {[m
+[32m+[m[32m        return age;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setAge(int age) {[m
+[32m+[m[32m        this.age = age;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @JsonBackReference[m
+[32m+[m[32m//    @JsonManagedReference[m
+[32m+[m[32m//    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="consumer")[m
+[32m+[m[32m    public List<PurchaseOrder> getOrders() {[m
+[32m+[m[32m        return orders;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setOrders(List<PurchaseOrder> orders) {[m
+[32m+[m[32m        this.orders = orders;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public String toString() {[m
+[32m+[m[32m        return "User{" +[m
+[32m+[m[32m                "id=" + id +[m
+[32m+[m[32m                ", name='" + name + '\'' +[m
+[32m+[m[32m                ", email='" + email + '\'' +[m
+[32m+[m[32m                ", age=" + age +[m
+[32m+[m[32m                '}';[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/model/CreateOrder.java b/demo/src/main/java/com/example/demo/model/CreateOrder.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a5a24aa[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/model/CreateOrder.java[m
+[36m@@ -0,0 +1,49 @@[m
+[32m+[m[32mpackage com.example.demo.model;[m
+[32m+[m
+[32m+[m[32mimport javax.persistence.FetchType;[m
+[32m+[m[32mimport javax.persistence.JoinColumn;[m
+[32m+[m[32mimport javax.persistence.ManyToOne;[m
+[32m+[m
+[32m+[m[32mpublic class CreateOrder {[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    private String description;[m
+[32m+[m
+[32m+[m[32m    private Long consumerId;[m
+[32m+[m
+[32m+[m[32m    private Long productId;[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    public String getDescription() {[m
+[32m+[m[32m        return description;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setDescription(String description) {[m
+[32m+[m[32m        this.description = description;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public Long getConsumerId() {[m
+[32m+[m[32m        return consumerId;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setConsumerId(Long consumerId) {[m
+[32m+[m[32m        this.consumerId = consumerId;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public Long getProductId() {[m
+[32m+[m[32m        return productId;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setProductId(Long productId) {[m
+[32m+[m[32m        this.productId = productId;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public String toString() {[m
+[32m+[m[32m        return "CreateOrder{" +[m
+[32m+[m[32m                "description='" + description + '\'' +[m
+[32m+[m[32m                ", consumerId=" + consumerId +[m
+[32m+[m[32m                ", productId=" + productId +[m
+[32m+[m[32m                '}';[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/model/Product.java b/demo/src/main/java/com/example/demo/model/Product.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8f241c7[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/model/Product.java[m
+[36m@@ -0,0 +1,99 @@[m
+[32m+[m[32mpackage com.example.demo.model;[m
+[32m+[m
+[32m+[m
+[32m+[m[32mimport com.fasterxml.jackson.annotation.JsonBackReference;[m
+[32m+[m[32mimport com.fasterxml.jackson.annotation.JsonManagedReference;[m
+[32m+[m[32mimport org.hibernate.annotations.LazyCollection;[m
+[32m+[m[32mimport org.hibernate.annotations.LazyCollectionOption;[m
+[32m+[m
+[32m+[m[32mimport javax.persistence.*;[m
+[32m+[m[32mimport javax.validation.constraints.Min;[m
+[32m+[m[32mimport javax.validation.constraints.NotBlank;[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m
+[32m+[m[32m@Entity[m
+[32m+[m[32m@Table[m
+[32m+[m[32mpublic class Product {[m
+[32m+[m
+[32m+[m[32m    @Id[m
+[32m+[m[32m    @Column(name = "product_id")[m
+[32m+[m[32m    @SequenceGenerator([m
+[32m+[m[32m            name = "product_sequence",[m
+[32m+[m[32m            sequenceName = "product_sequence",[m
+[32m+[m[32m            allocationSize = 1[m
+[32m+[m[32m    )[m
+[32m+[m[32m    @GeneratedValue([m
+[32m+[m[32m            strategy = GenerationType.SEQUENCE,[m
+[32m+[m[32m            generator = "product_sequence"[m
+[32m+[m[32m    )[m
+[32m+[m[32m    private Long id;[m
+[32m+[m
+[32m+[m[32m    @NotBlank(message = "description must exist")[m
+[32m+[m[32m    private String description;[m
+[32m+[m
+[32m+[m[32m    @Min(value = 1, message = "Price must be at least 1")[m
+[32m+[m[32m    private int price;[m
+[32m+[m
+[32m+[m[32m//    @OneToMany(mappedBy="product")[m
+[32m+[m[32m//    @LazyCollection(LazyCollectionOption.FALSE)[m
+[32m+[m[32m    @OneToMany(mappedBy = "product")[m
+[32m+[m[32m    @LazyCollection(LazyCollectionOption.FALSE)[m
+[32m+[m[32m    private List<PurchaseOrder> orders;[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    public Product () {}[m
+[32m+[m
+[32m+[m[32m    public Product(Long id, String description, int price) {[m
+[32m+[m[32m        this.id = id;[m
+[32m+[m[32m        this.description = description;[m
+[32m+[m[32m        this.price = price;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public Product(String description, int price) {[m
+[32m+[m[32m        this.description = description;[m
+[32m+[m[32m        this.price = price;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public Long getId() {[m
+[32m+[m[32m        return id;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setId(Long id) {[m
+[32m+[m[32m        this.id = id;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getDescription() {[m
+[32m+[m[32m        return description;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setDescription(String desc) {[m
+[32m+[m[32m        this.description = desc;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public int getPrice() {[m
+[32m+[m[32m        return price;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setPrice(int price) {[m
+[32m+[m[32m        this.price = price;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @JsonBackReference[m
+[32m+[m[32m//    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="product")[m
+[32m+[m[32m    public List<PurchaseOrder> getOrders() {[m
+[32m+[m[32m        return orders;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setOrders(List<PurchaseOrder> orders) {[m
+[32m+[m[32m        this.orders = orders;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public String toString() {[m
+[32m+[m[32m        return "Product{" +[m
+[32m+[m[32m                "id=" + id +[m
+[32m+[m[32m                ", desc='" + description + '\'' +[m
+[32m+[m[32m                ", price=" + price +[m
+[32m+[m[32m                '}';[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/model/PurchaseOrder.java b/demo/src/main/java/com/example/demo/model/PurchaseOrder.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0b37721[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/model/PurchaseOrder.java[m
+[36m@@ -0,0 +1,105 @@[m
+[32m+[m[32mpackage com.example.demo.model;[m
+[32m+[m
+[32m+[m[32mimport com.fasterxml.jackson.annotation.JsonBackReference;[m
+[32m+[m[32mimport com.fasterxml.jackson.annotation.JsonIgnore;[m
+[32m+[m[32mimport com.fasterxml.jackson.annotation.JsonManagedReference;[m
+[32m+[m
+[32m+[m[32mimport javax.persistence.*;[m
+[32m+[m
+[32m+[m
+[32m+[m[32m@Entity[m
+[32m+[m[32m@Table[m
+[32m+[m[32mpublic class PurchaseOrder {[m
+[32m+[m
+[32m+[m[32m    @Id[m
+[32m+[m[32m    @SequenceGenerator([m
+[32m+[m[32m            name = "purchaseOrder_sequence",[m
+[32m+[m[32m            sequenceName = "purchaseOrder_sequence",[m
+[32m+[m[32m            allocationSize = 1[m
+[32m+[m[32m    )[m
+[32m+[m[32m    @GeneratedValue([m
+[32m+[m[32m            strategy = GenerationType.SEQUENCE,[m
+[32m+[m[32m            generator = "purchaseOrder_sequence"[m
+[32m+[m[32m    )[m
+[32m+[m[32m    private Long id;[m
+[32m+[m[32m    private String description;[m
+[32m+[m
+[32m+[m[32m//    @ManyToOne[m
+[32m+[m[32m//    @ManyToOne(fetch = FetchType.LAZY)[m
+[32m+[m[32m//    @JoinColumn(name = "consumer_id")[m
+[32m+[m[32m    @ManyToOne[m
+[32m+[m[32m    @JoinColumn(name = "consumer_id")[m
+[32m+[m[32m    private Consumer consumer;[m
+[32m+[m
+[32m+[m[32m//    @ManyToOne()[m
+[32m+[m[32m//    @ManyToOne(fetch = FetchType.LAZY)[m
+[32m+[m[32m//    @JoinColumn(name = "product_id")[m
+[32m+[m[32m    @ManyToOne[m
+[32m+[m[32m    @JoinColumn(name = "product_id")[m
+[32m+[m[32m    private Product product;[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    public PurchaseOrder() {}[m
+[32m+[m
+[32m+[m[32m    public PurchaseOrder(Long id, String description, Consumer consumer, Product product ) {[m
+[32m+[m[32m        this.id = id;[m
+[32m+[m[32m        this.description = description;[m
+[32m+[m[32m        this.consumer = consumer;[m
+[32m+[m[32m        this.product = product;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public PurchaseOrder(String description, Consumer consumer, Product product) {[m
+[32m+[m[32m        this.description = description;[m
+[32m+[m[32m        this.consumer = consumer;[m
+[32m+[m[32m        this.product = product;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public Long getId() {[m
+[32m+[m[32m        return id;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setId(Long id) {[m
+[32m+[m[32m        this.id = id;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getDescription() {[m
+[32m+[m[32m        return description;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setDescription(String description) {[m
+[32m+[m[32m        this.description = description;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m//    @JsonManagedReference[m
+[32m+[m[32m//    @ManyToOne(fetch=FetchType.LAZY)[m
+[32m+[m[32m    public Consumer getConsumer() {[m
+[32m+[m[32m        return consumer;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setConsumer(Consumer consumer) {[m
+[32m+[m[32m        this.consumer = consumer;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m//    @JsonManagedReference[m
+[32m+[m[32m//    @ManyToOne(fetch=FetchType.LAZY)[m
+[32m+[m[32m    public Product getProduct() {[m
+[32m+[m[32m        return product;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setProduct(Product product) {[m
+[32m+[m[32m        this.product = product;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public String toString() {[m
+[32m+[m[32m        return "PurchaseOrder{" +[m
+[32m+[m[32m                "id=" + id +[m
+[32m+[m[32m                ", description='" + description + '\'' +[m
+[32m+[m[32m                ", consumer=" + consumer +[m
+[32m+[m[32m                ", product=" + product +[m
+[32m+[m[32m                '}';[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/rep/ConsumerRepository.java b/demo/src/main/java/com/example/demo/rep/ConsumerRepository.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2268f13[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/rep/ConsumerRepository.java[m
+[36m@@ -0,0 +1,19 @@[m
+[32m+[m[32mpackage com.example.demo.rep;[m
+[32m+[m
+[32m+[m[32mimport com.example.demo.model.Consumer;[m
+[32m+[m[32mimport org.springframework.data.jpa.repository.JpaRepository;[m
+[32m+[m[32mimport org.springframework.data.jpa.repository.Query;[m
+[32m+[m[32mimport org.springframework.stereotype.Repository;[m
+[32m+[m
+[32m+[m[32mimport java.util.Optional;[m
+[32m+[m
+[32m+[m[32m@Repository[m
+[32m+[m[32mpublic interface ConsumerRepository extends JpaRepository<Consumer, Long> {[m
+[32m+[m
+[32m+[m[32m    @Query("SELECT s FROM Consumer s WHERE s.email = ?1")[m
+[32m+[m[32m    Optional<Consumer> findConsumerByEmail(String email);[m
+[32m+[m
+[32m+[m[32m    @Query("SELECT s FROM Consumer s WHERE s.id = ?1")[m
+[32m+[m[32m    Optional<Consumer> findConsumerById(Long id);[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/rep/ProductRepository.java b/demo/src/main/java/com/example/demo/rep/ProductRepository.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..cc18f37[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/rep/ProductRepository.java[m
+[36m@@ -0,0 +1,20 @@[m
+[32m+[m[32mpackage com.example.demo.rep;[m
+[32m+[m
+[32m+[m[32mimport com.example.demo.model.Product;[m
+[32m+[m[32mimport org.springframework.data.jpa.repository.JpaRepository;[m
+[32m+[m[32mimport org.springframework.data.jpa.repository.Query;[m
+[32m+[m[32mimport org.springframework.stereotype.Repository;[m
+[32m+[m
+[32m+[m[32mimport java.util.Optional;[m
+[32m+[m
+[32m+[m
+[32m+[m[32m@Repository[m
+[32m+[m[32mpublic interface ProductRepository extends JpaRepository<Product, Long> {[m
+[32m+[m
+[32m+[m[32m    @Query("SELECT p FROM Product p WHERE p.description = ?1")[m
+[32m+[m[32m    Optional<Product> findProductByDesc(String description);[m
+[32m+[m
+[32m+[m[32m    @Query("SELECT p FROM Product p WHERE p.id = ?1")[m
+[32m+[m[32m    Optional<Product> findProductById(Long id);[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/rep/PurchaseOrderRepository.java b/demo/src/main/java/com/example/demo/rep/PurchaseOrderRepository.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a781137[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/rep/PurchaseOrderRepository.java[m
+[36m@@ -0,0 +1,13 @@[m
+[32m+[m[32mpackage com.example.demo.rep;[m
+[32m+[m
+[32m+[m[32mimport com.example.demo.model.Product;[m
+[32m+[m[32mimport com.example.demo.model.PurchaseOrder;[m
+[32m+[m[32mimport org.springframework.data.jpa.repository.JpaRepository;[m
+[32m+[m[32mimport org.springframework.data.jpa.repository.Query;[m
+[32m+[m[32mimport org.springframework.stereotype.Repository;[m
+[32m+[m
+[32m+[m[32m@Repository[m
+[32m+[m[32mpublic interface PurchaseOrderRepository extends JpaRepository<PurchaseOrder, Long> {[m
+[32m+[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/service/ConsumerService.java b/demo/src/main/java/com/example/demo/service/ConsumerService.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..db03efc[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/service/ConsumerService.java[m
+[36m@@ -0,0 +1,82 @@[m
+[32m+[m[32mpackage com.example.demo.service;[m
+[32m+[m
+[32m+[m[32mimport com.example.demo.model.Consumer;[m
+[32m+[m[32mimport com.example.demo.rep.ConsumerRepository;[m
+[32m+[m[32mimport org.springframework.beans.factory.annotation.Autowired;[m
+[32m+[m[32mimport org.springframework.stereotype.Service;[m
+[32m+[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m[32mimport java.util.Optional;[m
+[32m+[m
+[32m+[m[32m@Service[m
+[32m+[m[32mpublic class ConsumerService {[m
+[32m+[m
+[32m+[m[32m    private ConsumerRepository consumerRepository;[m
+[32m+[m
+[32m+[m[32m    @Autowired[m
+[32m+[m[32m    public ConsumerService(ConsumerRepository consumerRepository) {[m
+[32m+[m[32m        this.consumerRepository = consumerRepository;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public List<Consumer> getConsumers() {[m
+[32m+[m[32m        return consumerRepository.findAll();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public Consumer getConsumerById(Long id) {[m
+[32m+[m[32m        return consumerRepository.getById(id);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    public void addNewConsumer(Consumer consumer) {[m
+[32m+[m[32m        Optional<Consumer> consumerOptional = consumerRepository.findConsumerByEmail(consumer.getEmail());[m
+[32m+[m[32m        if (consumerOptional.isPresent()) {[m
+[32m+[m[32m            throw new IllegalStateException("email taken");[m
+[32m+[m[32m        }[m
+[32m+[m[32m        consumerRepository.save(consumer);[m
+[32m+[m[32m        System.out.println(consumer);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void deleteConsumer(Long consumerId) {[m
+[32m+[m[32m        boolean exists = consumerRepository.existsById(consumerId);[m
+[32m+[m[32m        if (!exists){[m
+[32m+[m[32m            throw new IllegalStateException("consumer with id " + consumerId + " does not exist");[m
+[32m+[m[32m        }[m
+[32m+[m[32m        consumerRepository.deleteById(consumerId);[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m//    @Transactional[m
+[32m+[m[32m//    public void updateConsumer(Long consumerId, String name, String email) {[m
+[32m+[m[32m//        Consumer consumer = consumerRepository.findById(consumerId)[m
+[32m+[m[32m//                .orElseThrow(() -> new IllegalStateException("consumer with id" + consumerId + "does not exist"));[m
+[32m+[m[32m//        System.out.println(consumer);[m
+[32m+[m[32m//        System.out.println(name);[m
+[32m+[m[32m//[m
+[32m+[m[32m//        if (name != null && name.length()>0 && !Objects.equals(consumer.getName(), name)) {[m
+[32m+[m[32m//            consumer.setName(name);[m
+[32m+[m[32m//            System.out.println(name);[m
+[32m+[m[32m//        }[m
+[32m+[m[32m//[m
+[32m+[m[32m//        if (email != null && email.length()>0 && !Objects.equals(consumer.getEmail(), email)) {[m
+[32m+[m[32m//            Optional<Consumer> consumerOptional = consumerRepository.findConsumerByEmail(email);[m
+[32m+[m[32m//            if (consumerOptional.isPresent()) {[m
+[32m+[m[32m//                throw new IllegalStateException("email taken");[m
+[32m+[m[32m//            }[m
+[32m+[m[32m//            consumer.setEmail(email);[m
+[32m+[m[32m//        }[m
+[32m+[m[32m//[m
+[32m+[m[32m//    }[m
+[32m+[m
+[32m+[m[32m//    public Consumer updateConsumer(Long consumerId, String name, String email) {[m
+[32m+[m[32m      public Consumer updateConsumer(Consumer consumer) {[m
+[32m+[m[32m        Consumer con = consumerRepository.getById(consumer.getId());[m
+[32m+[m[32m        con.setName(consumer.getName());[m
+[32m+[m[32m        con.setEmail(consumer.getEmail());[m
+[32m+[m[32m        return consumerRepository.save(con);[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/service/ProductService.java b/demo/src/main/java/com/example/demo/service/ProductService.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..fdf089d[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/service/ProductService.java[m
+[36m@@ -0,0 +1,54 @@[m
+[32m+[m[32mpackage com.example.demo.service;[m
+[32m+[m
+[32m+[m
+[32m+[m[32mimport com.example.demo.model.Product;[m
+[32m+[m[32mimport com.example.demo.rep.ProductRepository;[m
+[32m+[m[32mimport org.springframework.beans.factory.annotation.Autowired;[m
+[32m+[m[32mimport org.springframework.stereotype.Service;[m
+[32m+[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m[32mimport java.util.Optional;[m
+[32m+[m
+[32m+[m[32m@Service[m
+[32m+[m[32mpublic class ProductService {[m
+[32m+[m
+[32m+[m[32m    private ProductRepository productRepository;[m
+[32m+[m
+[32m+[m[32m    @Autowired[m
+[32m+[m[32m    public ProductService(ProductRepository productRepository) {[m
+[32m+[m[32m        this.productRepository = productRepository;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public List<Product> getProducts() {[m
+[32m+[m[32m        return productRepository.findAll();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public Product getProductById(Long id) {[m
+[32m+[m[32m        return productRepository.getById(id);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    public void addNewProduct(Product product) {[m
+[32m+[m[32m//        Optional<Product> consumerOptional = productRepository.findProductByDesc(product.getDescription());[m
+[32m+[m[32m//        if (consumerOptional.isPresent()) {[m
+[32m+[m[32m//            throw new IllegalStateException("description taken");[m
+[32m+[m[32m//        }[m
+[32m+[m[32m        productRepository.save(product);[m
+[32m+[m[32m        System.out.println(product);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void deleteProduct(Long productId) {[m
+[32m+[m[32m        boolean exists = productRepository.existsById(productId);[m
+[32m+[m[32m        if (!exists){[m
+[32m+[m[32m            throw new IllegalStateException("product with id " + productId + " does not exist");[m
+[32m+[m[32m        }[m
+[32m+[m[32m        productRepository.deleteById(productId);[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/java/com/example/demo/service/PurchaseOrderService.java b/demo/src/main/java/com/example/demo/service/PurchaseOrderService.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..740e5c2[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/java/com/example/demo/service/PurchaseOrderService.java[m
+[36m@@ -0,0 +1,70 @@[m
+[32m+[m[32mpackage com.example.demo.service;[m
+[32m+[m
+[32m+[m
+[32m+[m[32mimport com.example.demo.exception.CustomRestServiceException;[m
+[32m+[m[32mimport com.example.demo.model.Consumer;[m
+[32m+[m[32mimport com.example.demo.model.CreateOrder;[m
+[32m+[m[32mimport com.example.demo.model.Product;[m
+[32m+[m[32mimport com.example.demo.model.PurchaseOrder;[m
+[32m+[m[32mimport com.example.demo.rep.ConsumerRepository;[m
+[32m+[m[32mimport com.example.demo.rep.ProductRepository;[m
+[32m+[m[32mimport com.example.demo.rep.PurchaseOrderRepository;[m
+[32m+[m[32mimport org.springframework.beans.factory.annotation.Autowired;[m
+[32m+[m[32mimport org.springframework.stereotype.Service;[m
+[32m+[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m[32mimport java.util.Optional;[m
+[32m+[m
+[32m+[m[32m@Service[m
+[32m+[m[32mpublic class PurchaseOrderService {[m
+[32m+[m
+[32m+[m[32m    private final PurchaseOrderRepository purchaseOrderRepository;[m
+[32m+[m[32m    private final ConsumerRepository consumerRepository;[m
+[32m+[m[32m    private final ProductRepository productRepository;[m
+[32m+[m
+[32m+[m[32m    @Autowired[m
+[32m+[m[32m    public PurchaseOrderService(PurchaseOrderRepository purchaseOrderRepository, ConsumerRepository consumerRepository, ProductRepository productRepository) {[m
+[32m+[m[32m        this.purchaseOrderRepository = purchaseOrderRepository;[m
+[32m+[m[32m        this.consumerRepository = consumerRepository;[m
+[32m+[m[32m        this.productRepository = productRepository;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public List<PurchaseOrder> getPurchaseOrders() {[m
+[32m+[m[32m        return purchaseOrderRepository.findAll();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void addNewPurchaseOrder(CreateOrder createOrder /*String description, Long consumer_id, Long product_id */) throws CustomRestServiceException {[m
+[32m+[m
+[32m+[m[32m        PurchaseOrder po = new PurchaseOrder();[m
+[32m+[m
+[32m+[m[32m        po.setDescription(createOrder.getDescription());[m
+[32m+[m[32m//        if ( (consumerRepository.existsById(createOrder.getConsumerId())) == null )[m
+[32m+[m[32m        /*[m
+[32m+[m[32m        boolean exists = consumerRepository.existsById(createOrder.getConsumerId());[m
+[32m+[m[32m        if (!exists)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            throw new IllegalStateException("consumer with id " + createOrder.getConsumerId() + " does not exist");[m
+[32m+[m[32m        }[m
+[32m+[m[32m        */[m
+[32m+[m[32m//        Optional<Consumer> consumerOptional = consumerRepository.findConsumerById(createOrder.getConsumerId());[m
+[32m+[m[32m//        if (consumerOptional.isEmpty()) {[m
+[32m+[m[32m//            throw new IllegalStateException("Consumer with id" +  createOrder.getProductId() + " does not exist");[m
+[32m+[m[32m//        }[m
+[32m+[m[32m        po.setConsumer(consumerRepository.findConsumerById(createOrder.getConsumerId()).get());[m
+[32m+[m
+[32m+[m[32m        boolean existsp = productRepository.existsById(createOrder.getProductId());[m
+[32m+[m[32m        if (!existsp) {[m
+[32m+[m[32m            throw new IllegalStateException("product with id " + createOrder.getProductId() + " does not exist");[m
+[32m+[m[32m        }[m
+[32m+[m[32m//        Optional<Product> productOptional = productRepository.findProductById(createOrder.getProductId());[m
+[32m+[m[32m//        if (productOptional.isEmpty()) {[m
+[32m+[m[32m//            throw new IllegalStateException("Product with id" +  createOrder.getProductId() + " does not exist");[m
+[32m+[m[32m//        }[m
+[32m+[m[32m        po.setProduct(productRepository.findProductById(createOrder.getProductId()).get());[m
+[32m+[m
+[32m+[m
+[32m+[m[32m        purchaseOrderRepository.save(po);[m
+[32m+[m[32m        System.out.println(po);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/demo/src/main/resources/application.properties b/demo/src/main/resources/application.properties[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a4f347e[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/main/resources/application.properties[m
+[36m@@ -0,0 +1,9 @@[m
+[32m+[m[32mspring.datasource.url=jdbc:postgresql://localhost:5432/demo[m
+[32m+[m[32mspring.datasource.username= postgres[m
+[32m+[m[32mspring.datasource.password= 1234[m
+[32m+[m[32mspring.jpa.hibernate.ddl-auto=create-drop[m
+[32m+[m[32mspring.jpa.show-sql=true[m
+[32m+[m[32mspring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect[m
+[32m+[m[32mspring.jpa.properties.hibernate.format_sql=true[m
+[32m+[m
+[32m+[m[32mserver.error.include-message=always[m
+[1mdiff --git a/demo/src/test/java/com/example/demo/DemoApplicationTests.java b/demo/src/test/java/com/example/demo/DemoApplicationTests.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2778a6a[m
+[1m--- /dev/null[m
+[1m+++ b/demo/src/test/java/com/example/demo/DemoApplicationTests.java[m
+[36m@@ -0,0 +1,13 @@[m
+[32m+[m[32mpackage com.example.demo;[m
+[32m+[m
+[32m+[m[32mimport org.junit.jupiter.api.Test;[m
+[32m+[m[32mimport org.springframework.boot.test.context.SpringBootTest;[m
+[32m+[m
+[32m+[m[32m@SpringBootTest[m
+[32m+[m[32mclass DemoApplicationTests {[m
+[32m+[m
+[32m+[m	[32m@Test[m
+[32m+[m	[32mvoid contextLoads() {[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m[32m}[m
