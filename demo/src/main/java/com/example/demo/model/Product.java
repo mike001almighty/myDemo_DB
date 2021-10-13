@@ -1,8 +1,6 @@
 package com.example.demo.model;
 
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -34,12 +32,9 @@ public class Product {
     @Min(value = 1, message = "Price must be at least 1")
     private int price;
 
-//    @OneToMany(mappedBy="product")
-//    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "product")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<PurchaseOrder> orders;
-
 
     public Product () {}
 
@@ -79,7 +74,6 @@ public class Product {
     }
 
     @JsonBackReference
-//    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="product")
     public List<PurchaseOrder> getOrders() {
         return orders;
     }

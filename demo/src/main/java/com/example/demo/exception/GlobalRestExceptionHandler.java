@@ -33,6 +33,19 @@ public class GlobalRestExceptionHandler extends ResponseEntityExceptionHandler {
         //We can define other handlers based on Exception types
     }
 
+    @ExceptionHandler({NotFoundException.class})
+    public ResponseEntity<ApiErrorResponse> objectNotFound(NotFoundException ex, WebRequest request) {
+        ApiErrorResponse apiResponse = new ApiErrorResponse
+                .ApiErrorResponseBuilder()
+                .withDetail("Not able to find object record")
+//                .withMessage("Not a valid user id. Please provide a valid user id or contact system admin.")
+                .withMessage(ex.getMessage())
+                .withError_code("404")
+                .withStatus(HttpStatus.NOT_FOUND)
+                .atTime(LocalDateTime.now(ZoneOffset.UTC))
+                .build();
+        return new ResponseEntity<ApiErrorResponse>(apiResponse, HttpStatus.NOT_FOUND);
+    }
 
     @ExceptionHandler({MethodArgumentTypeMismatchException.class})
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request){

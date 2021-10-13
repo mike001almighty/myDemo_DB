@@ -38,18 +38,7 @@ public class PurchaseOrderService {
         PurchaseOrder po = new PurchaseOrder();
 
         po.setDescription(createOrder.getDescription());
-//        if ( (consumerRepository.existsById(createOrder.getConsumerId())) == null )
-        /*
-        boolean exists = consumerRepository.existsById(createOrder.getConsumerId());
-        if (!exists)
-        {
-            throw new IllegalStateException("consumer with id " + createOrder.getConsumerId() + " does not exist");
-        }
-        */
-//        Optional<Consumer> consumerOptional = consumerRepository.findConsumerById(createOrder.getConsumerId());
-//        if (consumerOptional.isEmpty()) {
-//            throw new IllegalStateException("Consumer with id" +  createOrder.getProductId() + " does not exist");
-//        }
+
         po.setConsumer(consumerRepository.findConsumerById(createOrder.getConsumerId()).get());
 
         boolean existsp = productRepository.existsById(createOrder.getProductId());

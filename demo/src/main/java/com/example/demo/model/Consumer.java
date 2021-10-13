@@ -28,8 +28,6 @@ public class Consumer {
     private String email;
     private int age;
 
-//    @OneToMany(mappedBy="consumer")
-//    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "consumer")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<PurchaseOrder> orders;
@@ -83,8 +81,6 @@ public class Consumer {
     }
 
     @JsonBackReference
-//    @JsonManagedReference
-//    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="consumer")
     public List<PurchaseOrder> getOrders() {
         return orders;
     }

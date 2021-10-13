@@ -1,8 +1,10 @@
 package com.example.demo.service;
 
 
+import com.example.demo.exception.NotFoundException;
 import com.example.demo.model.Product;
 import com.example.demo.rep.ProductRepository;
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,25 +25,25 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public Product getProductById(Long id) {
-        return productRepository.getById(id);
+    public Product getProductById(Long id) throws NotFoundException{
+        boolean exists = productRepository.existsById(id);
+        if (!exists) {
+            throw new NotFoundException("product with id " + id + " does not exist");
+        }
+            return productRepository.getById(id);
+
     }
 
-
-
     public void addNewProduct(Product product) {
-//        Optional<Product> consumerOptional = productRepository.findProductByDesc(product.getDescription());
-//        if (consumerOptional.isPresent()) {
-//            throw new IllegalStateException("description taken");
-//        }
         productRepository.save(product);
         System.out.println(product);
     }
 
-    public void deleteProduct(Long productId) {
+    public void deleteProduct(Long productId) throws NotFoundException {
         boolean exists = productRepository.existsById(productId);
         if (!exists){
-            throw new IllegalStateException("product with id " + productId + " does not exist");
+            throw new NotFoundException("product with id " + productId + " does not exist");
+//            throw new IllegalStateException("product with id " + productId + " does not exist");
         }
         productRepository.deleteById(productId);
 

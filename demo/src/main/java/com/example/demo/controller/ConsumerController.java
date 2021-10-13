@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.exception.NotFoundException;
 import com.example.demo.model.Consumer;
 import com.example.demo.service.ConsumerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class ConsumerController {
     }
 
     @DeleteMapping(path = "{consumerId}")
-    public void deleteConsumer(@PathVariable("consumerId") Long consumerId) {
+    public void deleteConsumer(@PathVariable("consumerId") Long consumerId) throws NotFoundException {
         consumerService.deleteConsumer(consumerId);
     }
 
@@ -41,9 +42,7 @@ public class ConsumerController {
             // @RequestParam (required = false)
     )
     {
-
         return consumerService.updateConsumer(consumer);
-        //return consumerService.updateConsumer(consumerId, name, email);
-    }
+     }
 
 }

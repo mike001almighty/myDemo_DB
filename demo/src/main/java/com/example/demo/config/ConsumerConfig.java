@@ -19,14 +19,12 @@ public class ConsumerConfig {
                     "Bob",
                     "bob@gmail.com",
                     25
-
             );
 
             Consumer pete = new Consumer(
                     "Pete",
                     "pete@gmail.com",
                     26
-
             );
 
             repository.saveAll(

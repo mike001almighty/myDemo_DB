@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-
+import com.example.demo.exception.NotFoundException;
 import com.example.demo.model.Consumer;
 import com.example.demo.model.Product;
 import com.example.demo.service.ConsumerService;
@@ -29,13 +29,18 @@ public class ProductController {
         return productService.getProducts();
     }
 
+    @GetMapping(path = "{productId}")
+    public Product getProduct(@PathVariable("productId") Long productId) throws NotFoundException {
+        return productService.getProductById(productId);
+    }
+
     @PostMapping
-    public void registerNewProduct (@Valid @RequestBody Product product) {
+    public void registerNewProduct (@Valid @RequestBody Product product)  {
         productService.addNewProduct(product);
     }
 
     @DeleteMapping(path = "{productId}")
-    public void deleteConsumer(@PathVariable("productId") Long productId) {
+    public void deleteConsumer(@PathVariable("productId") Long productId) throws NotFoundException {
         productService.deleteProduct(productId);
     }
 

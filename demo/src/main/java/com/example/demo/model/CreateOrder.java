@@ -6,13 +6,9 @@ import javax.persistence.ManyToOne;
 
 public class CreateOrder {
 
-
     private String description;
-
     private Long consumerId;
-
     private Long productId;
-
 
     public String getDescription() {
         return description;

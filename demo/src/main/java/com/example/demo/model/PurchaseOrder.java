@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table
 public class PurchaseOrder {
@@ -24,21 +23,13 @@ public class PurchaseOrder {
     private Long id;
     private String description;
 
-//    @ManyToOne
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "consumer_id")
     @ManyToOne
     @JoinColumn(name = "consumer_id")
     private Consumer consumer;
 
-//    @ManyToOne()
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "product_id")
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
-
-
 
     public PurchaseOrder() {}
 
@@ -71,9 +62,6 @@ public class PurchaseOrder {
         this.description = description;
     }
 
-
-//    @JsonManagedReference
-//    @ManyToOne(fetch=FetchType.LAZY)
     public Consumer getConsumer() {
         return consumer;
     }
@@ -82,9 +70,6 @@ public class PurchaseOrder {
         this.consumer = consumer;
     }
 
-
-//    @JsonManagedReference
-//    @ManyToOne(fetch=FetchType.LAZY)
     public Product getProduct() {
         return product;
     }
