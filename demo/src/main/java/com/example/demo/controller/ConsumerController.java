@@ -24,6 +24,11 @@ public class ConsumerController {
         return consumerService.getConsumers();
     }
 
+    @GetMapping(path = "{consumerId}")
+    public Consumer getConsumer(long consumerId) throws NotFoundException {
+        return consumerService.getConsumerById(consumerId);
+    }
+
     @PostMapping
     public void registerNewConsumer (@RequestBody Consumer consumer) {
         consumerService.addNewConsumer(consumer);
@@ -35,13 +40,7 @@ public class ConsumerController {
     }
 
     @PutMapping(path = "{consumerId}")
-    public Consumer updateConsumer( @RequestBody Consumer consumer
-//            @PathVariable("consumerId") Long consumerId,
-//            @RequestParam (required = false) String name,
-//            @RequestParam (required = false) String email
-            // @RequestParam (required = false)
-    )
-    {
+    public Consumer updateConsumer( @RequestBody Consumer consumer) throws NotFoundException {
         return consumerService.updateConsumer(consumer);
      }
 

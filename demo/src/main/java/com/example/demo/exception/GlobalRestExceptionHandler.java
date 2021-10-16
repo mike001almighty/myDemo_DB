@@ -29,8 +29,6 @@ public class GlobalRestExceptionHandler extends ResponseEntityExceptionHandler {
                 .atTime(LocalDateTime.now(ZoneOffset.UTC))
                 .build();
         return new ResponseEntity<ApiErrorResponse>(apiResponse, HttpStatus.NOT_FOUND);
-
-        //We can define other handlers based on Exception types
     }
 
     @ExceptionHandler({NotFoundException.class})
@@ -47,10 +45,22 @@ public class GlobalRestExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<ApiErrorResponse>(apiResponse, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler({AlreadyExistsException.class})
+    public ResponseEntity<ApiErrorResponse> objectAlreadyExists(AlreadyExistsException ex, WebRequest request) {
+        ApiErrorResponse apiResponse = new ApiErrorResponse
+                .ApiErrorResponseBuilder()
+                .withDetail("Object already exists")
+//                .withMessage("Not a valid user id. Please provide a valid user id or contact system admin.")
+                .withMessage(ex.getMessage())
+                .withError_code("400")
+                .withStatus(HttpStatus.BAD_REQUEST)
+                .atTime(LocalDateTime.now(ZoneOffset.UTC))
+                .build();
+        return new ResponseEntity<ApiErrorResponse>(apiResponse, HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler({MethodArgumentTypeMismatchException.class})
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request){
-
-        // let's get all validation error and send it across
         List<String> errorMsg= ex.getBindingResult().getFieldErrors().stream().map(e->e.getDefaultMessage()).collect(Collectors.toList());
         ApiErrorResponse response =new ApiErrorResponse.ApiErrorResponseBuilder()
                 .withStatus(status)
@@ -65,7 +75,6 @@ public class GlobalRestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(CustomRestServiceException.class)
     protected ResponseEntity<Object> handleCustomAPIException(CustomRestServiceException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-
         ApiErrorResponse response =new ApiErrorResponse.ApiErrorResponseBuilder()
                 .withStatus(status)
                 .withDetail("custom exception")
@@ -79,7 +88,6 @@ public class GlobalRestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     protected ResponseEntity<Object> handleCustomAPIException(Exception ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-
         ApiErrorResponse response =new ApiErrorResponse.ApiErrorResponseBuilder()
                 .withStatus(status)
                 .withDetail("Something went wrong")
