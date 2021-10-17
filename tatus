@@ -1,0 +1,29 @@
+[33mcommit b20c217685fa15af1c5489b628adc333d076adf3[m[33m ([m[1;36mHEAD -> [m[1;32mversioning[m[33m, [m[1;31morigin/exception[m[33m, [m[1;32mexception[m[33m)[m
+Author: Miro <mike.almighty001@gmail.com>
+Date:   Sat Oct 16 15:11:54 2021 +0200
+
+    object already exists exception + ProductV2 class
+
+[33mcommit 2d6f3a9701cec4a4371b1813e0a7403187cc5977[m
+Author: Miro <mike.almighty001@gmail.com>
+Date:   Sat Oct 16 15:11:01 2021 +0200
+
+    object already exists exception + ProductV2 class
+
+[33mcommit f6303ba28d84c2c70f59d549391b1c67693de279[m
+Author: Miro <mike.almighty001@gmail.com>
+Date:   Wed Oct 13 08:59:07 2021 +0200
+
+    first exception commit
+
+[33mcommit 0b796bb0b6e7c4ca08d18de53203c550e1c10230[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Miro <mike.almighty001@gmail.com>
+Date:   Sun Oct 10 21:04:27 2021 +0200
+
+    some stupid file
+
+[33mcommit f2a51e822d464e6469918d57f50cdf7ffd37caca[m[33m ([m[1;31morigin/all_comments[m[33m, [m[1;32mall_comments[m[33m)[m
+Author: Miro <mike.almighty001@gmail.com>
+Date:   Sun Oct 10 12:57:28 2021 +0200
+
+    first upload

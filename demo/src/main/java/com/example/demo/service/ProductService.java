@@ -26,12 +26,11 @@ public class ProductService {
     }
 
     public Product getProductById(Long id) throws NotFoundException{
-        boolean exists = productRepository.existsById(id);
-        if (!exists) {
+        boolean existsProduct = productRepository.existsById(id);
+        if (!existsProduct) {
             throw new NotFoundException("product with id " + id + " does not exist");
         }
             return productRepository.getById(id);
-
     }
 
     public void addNewProduct(Product product) {
@@ -40,17 +39,11 @@ public class ProductService {
     }
 
     public void deleteProduct(Long productId) throws NotFoundException {
-        boolean exists = productRepository.existsById(productId);
-        if (!exists){
+        boolean existsProduct = productRepository.existsById(productId);
+        if (!existsProduct){
             throw new NotFoundException("product with id " + productId + " does not exist");
-//            throw new IllegalStateException("product with id " + productId + " does not exist");
         }
         productRepository.deleteById(productId);
 
     }
-
-
-
-
-
 }

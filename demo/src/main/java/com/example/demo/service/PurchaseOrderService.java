@@ -2,12 +2,14 @@ package com.example.demo.service;
 
 
 import com.example.demo.exception.CustomRestServiceException;
+import com.example.demo.exception.NotFoundException;
 import com.example.demo.model.Consumer;
 import com.example.demo.model.CreateOrder;
 import com.example.demo.model.Product;
 import com.example.demo.model.PurchaseOrder;
 import com.example.demo.rep.ConsumerRepository;
 import com.example.demo.rep.ProductRepository;
+import com.example.demo.rep.ProductV2Repository;
 import com.example.demo.rep.PurchaseOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,39 +23,40 @@ public class PurchaseOrderService {
     private final PurchaseOrderRepository purchaseOrderRepository;
     private final ConsumerRepository consumerRepository;
     private final ProductRepository productRepository;
+    private final ProductV2Repository productV2Repository;
 
     @Autowired
-    public PurchaseOrderService(PurchaseOrderRepository purchaseOrderRepository, ConsumerRepository consumerRepository, ProductRepository productRepository) {
+    public PurchaseOrderService(PurchaseOrderRepository purchaseOrderRepository, ConsumerRepository consumerRepository, ProductRepository productRepository, ProductV2Repository productV2Repository) {
         this.purchaseOrderRepository = purchaseOrderRepository;
         this.consumerRepository = consumerRepository;
         this.productRepository = productRepository;
+        this.productV2Repository = productV2Repository;
     }
 
     public List<PurchaseOrder> getPurchaseOrders() {
         return purchaseOrderRepository.findAll();
     }
 
-    public void addNewPurchaseOrder(CreateOrder createOrder /*String description, Long consumer_id, Long product_id */) throws CustomRestServiceException {
+    public void addNewPurchaseOrder(CreateOrder createOrder) throws CustomRestServiceException, NotFoundException {
 
-        PurchaseOrder po = new PurchaseOrder();
+        PurchaseOrder purchaseOrder = new PurchaseOrder();
 
-        po.setDescription(createOrder.getDescription());
+        purchaseOrder.setDescription(createOrder.getDescription());
 
-        po.setConsumer(consumerRepository.findConsumerById(createOrder.getConsumerId()).get());
+        purchaseOrder.setConsumer(consumerRepository.findConsumerById(createOrder.getConsumerId()).get());
 
-        boolean existsp = productRepository.existsById(createOrder.getProductId());
-        if (!existsp) {
-            throw new IllegalStateException("product with id " + createOrder.getProductId() + " does not exist");
+        boolean existsProduct = productRepository.existsById(createOrder.getProductId());
+        if (!existsProduct) {
+            throw new NotFoundException("product with id " + createOrder.getProductId() + " does not exist");
         }
-//        Optional<Product> productOptional = productRepository.findProductById(createOrder.getProductId());
-//        if (productOptional.isEmpty()) {
-//            throw new IllegalStateException("Product with id" +  createOrder.getProductId() + " does not exist");
-//        }
-        po.setProduct(productRepository.findProductById(createOrder.getProductId()).get());
+        purchaseOrder.setProduct(productRepository.findProductById(createOrder.getProductId()).get());
 
+        purchaseOrder.setProductV2(productV2Repository.findProductV2ById(1L).get());
 
-        purchaseOrderRepository.save(po);
-        System.out.println(po);
+        purchaseOrder.setProductV2(null);
+
+        purchaseOrderRepository.save(purchaseOrder);
+        System.out.println(purchaseOrder);
     }
 
 }

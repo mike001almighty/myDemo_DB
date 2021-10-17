@@ -45,25 +45,25 @@ public class PurchaseOrderController {
 
     @PostMapping
     public void registerNewPurchaseOrder (@RequestBody CreateOrder createOrder) throws CustomRestServiceException, NotFoundException {
-        PurchaseOrder po = new PurchaseOrder();
-        po.setDescription(createOrder.getDescription());
+//        PurchaseOrder po = new PurchaseOrder();
+//        po.setDescription(createOrder.getDescription());
 //          Optional<Consumer> consumerOptional = Optional.ofNullable(consumerService.getConsumerById(createOrder.getConsumerId()));
 //          if (consumerOptional.isEmpty()) {
 //              throw new IllegalStateException("User does not exist");
 //        }
-        Consumer consumer = consumerService.getConsumerById(createOrder.getConsumerId());
-        if (consumer == null) throw new NotFoundException("Consumer with id" + createOrder.getConsumerId() + "does not exist");
+//        Consumer consumer = consumerService.getConsumerById(createOrder.getConsumerId());
+//        if (consumer == null) throw new NotFoundException("Consumer with id" + createOrder.getConsumerId() + "does not exist");
 //        boolean exists = consumerService.existsById(consumerId);
 //        if (!exists){
 //            throw new IllegalStateException("consumer with id " + consumerId + " does not exist");
 //        }
-        po.setConsumer(consumerService.getConsumerById(createOrder.getConsumerId()));
-
-        Optional<Product> productOptional = Optional.ofNullable(productService.getProductById(createOrder.getProductId()));
-        if (productOptional.isEmpty()) {
-            throw new IllegalStateException("Product does not exist");
-        }
-          po.setProduct(productService.getProductById(createOrder.getProductId()));
+//        po.setConsumer(consumerService.getConsumerById(createOrder.getConsumerId()));
+//
+//        Optional<Product> productOptional = Optional.ofNullable(productService.getProductById(createOrder.getProductId()));
+//        if (productOptional.isEmpty()) {
+//            throw new IllegalStateException("Product does not exist");
+//        }
+//          po.setProduct(productService.getProductById(createOrder.getProductId()));
 
         purchaseOrderService.addNewPurchaseOrder(createOrder) ;
     }

@@ -31,19 +31,25 @@ public class PurchaseOrder {
     @JoinColumn(name = "product_id")
     private Product product;
 
+    @ManyToOne
+    @JoinColumn(name = "productv2_id")
+    private ProductV2 productv2;
+
     public PurchaseOrder() {}
 
-    public PurchaseOrder(Long id, String description, Consumer consumer, Product product ) {
+    public PurchaseOrder(Long id, String description, Consumer consumer, Product product, ProductV2 productV2) {
         this.id = id;
         this.description = description;
         this.consumer = consumer;
         this.product = product;
+        this.productv2 = productV2;
     }
 
-    public PurchaseOrder(String description, Consumer consumer, Product product) {
+    public PurchaseOrder(String description, Consumer consumer, Product product, ProductV2 productV2) {
         this.description = description;
         this.consumer = consumer;
         this.product = product;
+        this.productv2 = productV2;
     }
 
     public Long getId() {
@@ -70,13 +76,13 @@ public class PurchaseOrder {
         this.consumer = consumer;
     }
 
-    public Product getProduct() {
-        return product;
-    }
+    public Product getProduct() { return product; }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
+    public void setProduct(Product product) { this.product = product; }
+
+    public ProductV2 getProductV2() { return productv2; }
+
+    public void setProductV2(ProductV2 productV2) { this.productv2 = productV2; }
 
     @Override
     public String toString() {
@@ -85,6 +91,7 @@ public class PurchaseOrder {
                 ", description='" + description + '\'' +
                 ", consumer=" + consumer +
                 ", product=" + product +
+                ", productV2=" + productv2 +
                 '}';
     }
 }

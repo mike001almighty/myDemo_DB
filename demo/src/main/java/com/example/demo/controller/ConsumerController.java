@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/users")
+@RequestMapping(path = {"api/v1/users",
+                        "api/v2/users"})
 public class ConsumerController {
 
     private final ConsumerService consumerService;
