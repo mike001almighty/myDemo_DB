@@ -24,7 +24,7 @@ public class ConsumerService {
     }
 
     public Consumer getConsumerById(Long id) throws NotFoundException {
-        consumerRepository.findConsumerById(id).orElseThrow(() -> new NotFoundException("consumer with id" +id + "does not exist"));
+        consumerRepository.findConsumerById(id).orElseThrow(() -> new NotFoundException("consumer with id" +id + " does not exist"));
         return consumerRepository.getById(id);
     }
 
@@ -42,12 +42,12 @@ public class ConsumerService {
         if (!existsConsumer){
             throw new IllegalStateException("consumer with id " + consumerId + " does not exist");
         }
-        consumerRepository.findConsumerById(consumerId).orElseThrow(() -> new NotFoundException("consumer with id" + consumerId + "does not exist"));
+        consumerRepository.findConsumerById(consumerId).orElseThrow(() -> new NotFoundException("consumer with id" + consumerId + " does not exist"));
         consumerRepository.deleteById(consumerId);
     }
 
     public Consumer updateConsumer(Consumer consumer) throws NotFoundException{
-        consumerRepository.findConsumerById(consumer.getId()).orElseThrow(() -> new NotFoundException("consumer with id" + consumer.getId() + "does not exist"));
+        consumerRepository.findConsumerById(consumer.getId()).orElseThrow(() -> new NotFoundException("consumer with id" + consumer.getId() + " does not exist"));
         Consumer con = consumerRepository.getById(consumer.getId());
         con.setName(consumer.getName());
         con.setEmail(consumer.getEmail());

@@ -37,7 +37,11 @@ public class PurchaseOrderService {
         return purchaseOrderRepository.findAll();
     }
 
-    public void addNewPurchaseOrder(CreateOrder createOrder) throws CustomRestServiceException, NotFoundException {
+    public List<PurchaseOrder> getPurchaseOrdersV2() {
+        return purchaseOrderRepository.findAll();
+    }
+
+    public void addNewPurchaseOrder(CreateOrder createOrder) throws /*CustomRestServiceException,*/ NotFoundException {
 
         PurchaseOrder purchaseOrder = new PurchaseOrder();
 
@@ -51,9 +55,30 @@ public class PurchaseOrderService {
         }
         purchaseOrder.setProduct(productRepository.findProductById(createOrder.getProductId()).get());
 
-        purchaseOrder.setProductV2(productV2Repository.findProductV2ById(1L).get());
+//        purchaseOrder.setProductV2(productV2Repository.findProductV2ById(1L).get());
 
         purchaseOrder.setProductV2(null);
+
+        purchaseOrderRepository.save(purchaseOrder);
+        System.out.println(purchaseOrder);
+    }
+
+    public void addNewPurchaseOrderV2(CreateOrder createOrder) throws /*CustomRestServiceException,*/ NotFoundException {
+
+        PurchaseOrder purchaseOrder = new PurchaseOrder();
+
+        purchaseOrder.setDescription(createOrder.getDescription());
+
+        purchaseOrder.setConsumer(consumerRepository.findConsumerById(createOrder.getConsumerId()).get());
+
+        boolean existsProductV2 = productV2Repository.existsById(createOrder.getProductId());
+        if (!existsProductV2) {
+            throw new NotFoundException("product with id " + createOrder.getProductId() + " does not exist");
+        }
+//        purchaseOrder.setProduct(productRepository.findProductById(createOrder.getProductId()).get());
+        purchaseOrder.setProductV2(productV2Repository.findProductV2ById(createOrder.getProductId()).get());
+
+        purchaseOrder.setProduct(null);
 
         purchaseOrderRepository.save(purchaseOrder);
         System.out.println(purchaseOrder);

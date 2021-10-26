@@ -9,7 +9,7 @@ public class CreateOrder {
     private String description;
     private Long consumerId;
     private Long productId;
-    private Long productv2Id;
+//    private Long productv2Id;
 
     public String getDescription() {
         return description;
@@ -33,13 +33,13 @@ public class CreateOrder {
 
     public void setProductId(Long productId) { this.productId = productId; }
 
-    public Long getProductV2Id() {
-        return productv2Id;
-    }
-
-    public void setProductV2Id(Long productv2Id) {
-        this.productv2Id = productv2Id;
-    }
+//    public Long getProductV2Id() {
+//        return productv2Id;
+//    }
+//
+//    public void setProductV2Id(Long productv2Id) {
+//        this.productv2Id = productv2Id;
+//    }
 
     @Override
     public String toString() {
@@ -47,7 +47,7 @@ public class CreateOrder {
                 "description='" + description + '\'' +
                 ", consumerId=" + consumerId +
                 ", productId=" + productId +
-                ", productv2Id=" + productv2Id +
+//                ", productv2Id=" + productv2Id +
                 '}';
     }
 }

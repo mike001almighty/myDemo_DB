@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(path = "api/v1/orders")
+@RequestMapping
 public class PurchaseOrderController {
 
     private PurchaseOrderService purchaseOrderService;
@@ -38,12 +39,19 @@ public class PurchaseOrderController {
         // ...
     }
 
-    @GetMapping
+//    @GetMapping(path = {"api/v1/orders",
+//                        "api/v2/orders"})
+    @GetMapping(path = "api/v1/orders")
     public List<PurchaseOrder> getPurchaseOrders(){
-        return purchaseOrderService.getPurchaseOrders();
+        return purchaseOrderService.getPurchaseOrders().stream().filter((p) -> p.getProductV2()==null).collect(Collectors.toList());
     }
 
-    @PostMapping
+    @GetMapping(path = "api/v2/orders")
+    public List<PurchaseOrder> getPurchaseOrdersV2(){
+        return purchaseOrderService.getPurchaseOrders().stream().filter((p) -> p.getProduct()==null).collect(Collectors.toList());
+}
+
+    @PostMapping(path = "api/v1/orders")
     public void registerNewPurchaseOrder (@RequestBody CreateOrder createOrder) throws CustomRestServiceException, NotFoundException {
 //        PurchaseOrder po = new PurchaseOrder();
 //        po.setDescription(createOrder.getDescription());
@@ -68,6 +76,10 @@ public class PurchaseOrderController {
         purchaseOrderService.addNewPurchaseOrder(createOrder) ;
     }
 
+    @PostMapping(path = "api/v2/orders")
+    public void registerNewPurchaseOrderV2 (@RequestBody CreateOrder createOrder) throws CustomRestServiceException, NotFoundException {
+        purchaseOrderService.addNewPurchaseOrderV2(createOrder);
+    }
 }
 
 
