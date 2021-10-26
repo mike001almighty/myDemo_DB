@@ -61,7 +61,6 @@ class ConsumerServiceTest {
 //
 //        assertEquals(new Consumer(1L,"Terry","terry@gmail.com",25), underTest.getConsumerById(1L));
 
-
 //        // given
 //        final Long id = 100L;
 //        final Consumer consumer = new Consumer(
@@ -72,23 +71,17 @@ class ConsumerServiceTest {
 //        );
         given(consumerRepository.findConsumerById(id)).willReturn(Optional.of(consumer));
 
-
 //        underTest.addNewConsumer(consumer);
 //        given(consumerRepository.findById(id)).willReturn(Optional.of(consumer));
 //        final Consumer expected = underTest.getConsumerById(id);
 //        assertThat(expected).isNotNull();
-//
-
 //        consumerRepository.save(consumer);
 //        underTest.addNewConsumer(consumer);
 //        Consumer expected = underTest.getConsumerById(7L);
 //        assertThat(expected).isInstanceOf(Consumer.class);
-//        underTest.getConsumerById(id);
+        underTest.getConsumerById(id);
 //        verify(consumerRepository).findConsumerById(1L).get();
         verify(consumerRepository).getById(id);
-//        Consumer expected = underTest.getConsumerById(1L);
-//        assertThat(expected.getId()).isEqualTo(1L);
-
     }
 
     @Test
