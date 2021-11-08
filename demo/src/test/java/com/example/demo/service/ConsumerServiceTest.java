@@ -14,30 +14,35 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.junit.jupiter.api.Assertions.*;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Optional;
 
+import static org.mockito.Mockito.when;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.willDoNothing;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class ConsumerServiceTest {
 
-    @Mock private ConsumerRepository consumerRepository;
-//    private AutoCloseable autoCloseable;
+    @Mock
+    private ConsumerRepository consumerRepository;
     @InjectMocks
     Consumer consumer;
     @InjectMocks
     private ConsumerService underTest;
 
+    private Consumer testConsumer;
+
     @BeforeEach
     void setUp() {
         underTest = new ConsumerService(consumerRepository);
-//       autoCloseable = MockitoAnnotations.openMocks(this);
+        this.testConsumer = new Consumer(2L,"test","test@gmail.com",32);
     }
 
     @Test
@@ -102,16 +107,49 @@ class ConsumerServiceTest {
         assertThat(capturedConsumer).isEqualTo(consumer);
     }
 
+
     @Test
     void deleteConsumer() throws NotFoundException {
-        // given
-        long id = 1;
-        given(consumerRepository.existsById(id))
-                .willReturn(true);
-        // when
+        long id = 2L;
+        Consumer consumer = new Consumer (2L,"tom","tom", 25);
+
+        given(consumerRepository.existsById(id)).willReturn(Boolean.TRUE);
+        when(consumerRepository.findConsumerById(id)).thenReturn(Optional.of(consumer));
+//        given(consumerRepository.findById(id)).willReturn(Optional.of(consumer));
+        willDoNothing().given(consumerRepository).deleteById(id);
+        //        when(consumerRepository.findById(consumer.getId())).thenReturn(Optional.of(consumer));
+
         underTest.deleteConsumer(id);
 
-        // then
         verify(consumerRepository).deleteById(id);
+
+        // given
+//        Consumer consumer = new Consumer ("tom","tom", 25);
+//        consumer.setId(2L);
+//        long id = 2L;
+//
+//        underTest.addNewConsumer(consumer);
+//
+//        when(consumerRepository.deleteById(any())).getMock();
+//
+//        given(consumerRepository.existsById(id))
+//                .willReturn(true);
+//        given(consumerRepository.deleteById(id)).willReturn(Optional.empty());
+//        given(underTest.deleteConsumer(id):notNull());
+        // when
+//        underTest.deleteConsumer(id);
+
+        // then
+//        verify(consumerRepository).deleteById(id);
+
+//        try {
+//            underTest.deleteConsumer(id);
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+
+//        verify(consumerRepository, times(1)).deleteById(any());
+//        verify(consumerRepository).deleteById(id);
     }
+
 }
