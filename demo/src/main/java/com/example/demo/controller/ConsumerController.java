@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.exception.AlreadyExistsException;
 import com.example.demo.exception.NotFoundException;
 import com.example.demo.model.Consumer;
 import com.example.demo.service.ConsumerService;
@@ -31,7 +32,7 @@ public class ConsumerController {
     }
 
     @PostMapping
-    public void registerNewConsumer (@RequestBody Consumer consumer) {
+    public void registerNewConsumer (@RequestBody Consumer consumer) throws AlreadyExistsException {
         consumerService.addNewConsumer(consumer);
     }
 

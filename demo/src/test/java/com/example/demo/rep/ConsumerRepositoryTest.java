@@ -7,11 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-
 import static org.assertj.core.api.Assertions.*;
 
 @DataJpaTest
@@ -51,7 +48,6 @@ class ConsumerRepositoryTest {
                 "Bob",
                 "bob@gmail.com",
                 22
-
         );
         underTest.save(consumer);
 
@@ -59,8 +55,6 @@ class ConsumerRepositoryTest {
         Consumer expected = underTest.findConsumerById(1L).get();
 
         // then
-//        assertTrue(expected.isPresent() && consumer.equals(expected.get()));
-//        assertThat("expected", opt.get()).isEqualTo(consumer);
         assertThat(expected.equals(consumer));
     }
 }

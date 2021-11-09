@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.exception.AlreadyExistsException;
 import com.example.demo.exception.NotFoundException;
 import com.example.demo.model.Consumer;
 import com.example.demo.rep.ConsumerRepository;
@@ -90,7 +91,7 @@ class ConsumerServiceTest {
     }
 
     @Test
-    void testAddNewConsumer() {
+    void testAddNewConsumer() throws AlreadyExistsException {
         // given
         Consumer consumer = new Consumer(
                 "Terry",
@@ -112,16 +113,13 @@ class ConsumerServiceTest {
     void deleteConsumer() throws NotFoundException {
         long id = 2L;
         Consumer consumer = new Consumer (2L,"tom","tom", 25);
-
         given(consumerRepository.existsById(id)).willReturn(Boolean.TRUE);
         when(consumerRepository.findConsumerById(id)).thenReturn(Optional.of(consumer));
-//        given(consumerRepository.findById(id)).willReturn(Optional.of(consumer));
+
         willDoNothing().given(consumerRepository).deleteById(id);
-        //        when(consumerRepository.findById(consumer.getId())).thenReturn(Optional.of(consumer));
-
         underTest.deleteConsumer(id);
-
         verify(consumerRepository).deleteById(id);
+
 
         // given
 //        Consumer consumer = new Consumer ("tom","tom", 25);
