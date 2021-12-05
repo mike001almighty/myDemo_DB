@@ -8,7 +8,7 @@ import com.example.demo.model.CreateOrder;
 import com.example.demo.model.Product;
 import com.example.demo.model.PurchaseOrder;
 import com.example.demo.rep.ConsumerRepository;
-import com.example.demo.rep.ProductRepository;
+//import com.example.demo.rep.ProductRepository;
 import com.example.demo.rep.ProductV2Repository;
 import com.example.demo.rep.PurchaseOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +21,16 @@ import java.util.Optional;
 public class PurchaseOrderService {
 
     private final PurchaseOrderRepository purchaseOrderRepository;
-    private final ConsumerRepository consumerRepository;
-    private final ProductRepository productRepository;
-    private final ProductV2Repository productV2Repository;
+    private ConsumerRepository consumerRepository;
+    private ProductV2Repository productV2Repository;
 
     @Autowired
-    public PurchaseOrderService(PurchaseOrderRepository purchaseOrderRepository, ConsumerRepository consumerRepository, ProductRepository productRepository, ProductV2Repository productV2Repository) {
+    public PurchaseOrderService(PurchaseOrderRepository purchaseOrderRepository,
+                                ConsumerRepository consumerRepository,
+                                ProductV2Repository productV2Repository/*ProductRepository productRepository,*/) {
         this.purchaseOrderRepository = purchaseOrderRepository;
         this.consumerRepository = consumerRepository;
-        this.productRepository = productRepository;
+//        this.productRepository = productRepository;
         this.productV2Repository = productV2Repository;
     }
 
@@ -47,41 +48,44 @@ public class PurchaseOrderService {
 
         purchaseOrder.setDescription(createOrder.getDescription());
 
+        boolean existsConsumer = consumerRepository.existsById(createOrder.getConsumerId());
+        if (!existsConsumer) {
+            throw new NotFoundException("consumer with id " + createOrder.getConsumerId() + " does not exist");
+        }
         purchaseOrder.setConsumer(consumerRepository.findConsumerById(createOrder.getConsumerId()).get());
 
-        boolean existsProduct = productRepository.existsById(createOrder.getProductId());
+        boolean existsProduct = productV2Repository.existsById(createOrder.getProductId());
         if (!existsProduct) {
             throw new NotFoundException("product with id " + createOrder.getProductId() + " does not exist");
         }
-        purchaseOrder.setProduct(productRepository.findProductById(createOrder.getProductId()).get());
+        purchaseOrder.setProduct(productV2Repository.findProductV2ById(createOrder.getProductId()).get());
 
 //        purchaseOrder.setProductV2(productV2Repository.findProductV2ById(1L).get());
-
-        purchaseOrder.setProductV2(null);
-
-        purchaseOrderRepository.save(purchaseOrder);
-        System.out.println(purchaseOrder);
-    }
-
-    public void addNewPurchaseOrderV2(CreateOrder createOrder) throws /*CustomRestServiceException,*/ NotFoundException {
-
-        PurchaseOrder purchaseOrder = new PurchaseOrder();
-
-        purchaseOrder.setDescription(createOrder.getDescription());
-
-        purchaseOrder.setConsumer(consumerRepository.findConsumerById(createOrder.getConsumerId()).get());
-
-        boolean existsProductV2 = productV2Repository.existsById(createOrder.getProductId());
-        if (!existsProductV2) {
-            throw new NotFoundException("product with id " + createOrder.getProductId() + " does not exist");
-        }
-//        purchaseOrder.setProduct(productRepository.findProductById(createOrder.getProductId()).get());
-        purchaseOrder.setProductV2(productV2Repository.findProductV2ById(createOrder.getProductId()).get());
-
-        purchaseOrder.setProduct(null);
+//        purchaseOrder.setProductV2(null);
 
         purchaseOrderRepository.save(purchaseOrder);
         System.out.println(purchaseOrder);
     }
+
+//    public void addNewPurchaseOrderV2(CreateOrder createOrder) throws /*CustomRestServiceException,*/ NotFoundException {
+//
+//        PurchaseOrder purchaseOrder = new PurchaseOrder();
+//
+//        purchaseOrder.setDescription(createOrder.getDescription());
+//
+//        purchaseOrder.setConsumer(consumerRepository.findConsumerById(createOrder.getConsumerId()).get());
+//
+//        boolean existsProductV2 = productV2Repository.existsById(createOrder.getProductId());
+//        if (!existsProductV2) {
+//            throw new NotFoundException("product with id " + createOrder.getProductId() + " does not exist");
+//        }
+////        purchaseOrder.setProduct(productRepository.findProductById(createOrder.getProductId()).get());
+//        purchaseOrder.setProduct(productV2Repository.findProductV2ById(createOrder.getProductId()).get());
+//
+//        purchaseOrder.setProduct(null);
+//
+//        purchaseOrderRepository.save(purchaseOrder);
+//        System.out.println(purchaseOrder);
+//    }
 
 }

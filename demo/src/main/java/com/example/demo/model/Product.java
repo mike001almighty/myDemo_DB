@@ -9,21 +9,21 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
-@Entity
-@Table
+//@Entity
+//@Table
 public class Product {
 
-    @Id
-    @Column(name = "product_id")
-    @SequenceGenerator(
-            name = "product_sequence",
-            sequenceName = "product_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "product_sequence"
-    )
+//    @Id
+//    @Column(name = "product_id")
+//    @SequenceGenerator(
+//            name = "product_sequence",
+//            sequenceName = "product_sequence",
+//            allocationSize = 1
+//    )
+//    @GeneratedValue(
+//            strategy = GenerationType.SEQUENCE,
+//            generator = "product_sequence"
+//    )
     private Long id;
 
     @NotBlank(message = "description must exist")
@@ -32,9 +32,9 @@ public class Product {
     @Min(value = 1, message = "Price must be at least 1")
     private int price;
 
-    @OneToMany(mappedBy = "product")
-    @LazyCollection(LazyCollectionOption.FALSE)
-    private List<PurchaseOrder> orders;
+//    @OneToMany(mappedBy = "product")
+//    @LazyCollection(LazyCollectionOption.FALSE)
+//    private List<PurchaseOrder> orders;
 
     public Product () {}
 
@@ -73,14 +73,14 @@ public class Product {
         this.price = price;
     }
 
-    @JsonBackReference
-    public List<PurchaseOrder> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<PurchaseOrder> orders) {
-        this.orders = orders;
-    }
+//    @JsonBackReference
+//    public List<PurchaseOrder> getOrders() {
+//        return orders;
+//    }
+//
+//    public void setOrders(List<PurchaseOrder> orders) {
+//        this.orders = orders;
+//    }
 
     @Override
     public String toString() {

@@ -1,8 +1,10 @@
 package com.example.demo.config;
 
 import com.example.demo.model.Product;
+import com.example.demo.model.ProductV2;
 import com.example.demo.rep.ConsumerRepository;
-import com.example.demo.rep.ProductRepository;
+//import com.example.demo.rep.ProductRepository;
+import com.example.demo.rep.ProductV2Repository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,15 +15,17 @@ import java.util.List;
 public class ProductConfig {
 
     @Bean
-    CommandLineRunner commandLineRunnerProduct(ProductRepository repository){
+    CommandLineRunner commandLineRunnerProduct(ProductV2Repository repository){
         return args -> {
-            Product item_1 = new Product(
+            ProductV2 item_1 = new ProductV2(
                     "item_1",
+                    "electronics",
                     25
             );
 
-            Product item_2 = new Product(
+            ProductV2 item_2 = new ProductV2(
                     "item_2",
+                    "electronics",
                     26
             );
 

@@ -35,24 +35,25 @@ public class ProductV2 {
     @Min(value = 1, message = "Price must be at least 1")
     private int price;
 
-    @OneToMany(mappedBy = "productv2" , targetEntity = PurchaseOrder.class)
+//    @OneToMany(mappedBy = "productv2" , targetEntity = PurchaseOrder.class)
+    @OneToMany(mappedBy = "product" , targetEntity = PurchaseOrder.class)
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<PurchaseOrder> orders;
 
-//    public ProductV2 () {}
-//
-//    public ProductV2(Long id, String description, String category, int price) {
-//        this.id = id;
-//        this.description = description;
-//        this.category = category;
-//        this.price = price;
-//    }
-//
-//    public ProductV2(String description, String category, int price) {
-//        this.description = description;
-//        this.category = category;
-//        this.price = price;
-//    }
+    public ProductV2 () {}
+
+    public ProductV2(Long id, String description, String category, int price) {
+        this.id = id;
+        this.description = description;
+        this.category = category;
+        this.price = price;
+    }
+
+    public ProductV2(String description, String category, int price) {
+        this.description = description;
+        this.category = category;
+        this.price = price;
+    }
 
     public Long getId() {
         return id;

@@ -18,18 +18,18 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class GlobalRestExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler({ConsumerNotFoundException.class})
-    public ResponseEntity<ApiErrorResponse> customerNotFound(ConsumerNotFoundException ex, WebRequest request){
-        ApiErrorResponse apiResponse =new ApiErrorResponse
-                .ApiErrorResponseBuilder()
-                .withDetail("Not able to find consumer record")
-                .withMessage("Not a valid user id. Please provide a valid user id or contact system admin.")
-                .withError_code("404")
-                .withStatus(HttpStatus.NOT_FOUND)
-                .atTime(LocalDateTime.now(ZoneOffset.UTC))
-                .build();
-        return new ResponseEntity<ApiErrorResponse>(apiResponse, HttpStatus.NOT_FOUND);
-    }
+//    @ExceptionHandler({ConsumerNotFoundException.class})
+//    public ResponseEntity<ApiErrorResponse> customerNotFound(ConsumerNotFoundException ex, WebRequest request){
+//        ApiErrorResponse apiResponse =new ApiErrorResponse
+//                .ApiErrorResponseBuilder()
+//                .withDetail("Not able to find consumer record")
+//                .withMessage("Not a valid user id. Please provide a valid user id or contact system admin.")
+//                .withError_code("404")
+//                .withStatus(HttpStatus.NOT_FOUND)
+//                .atTime(LocalDateTime.now(ZoneOffset.UTC))
+//                .build();
+//        return new ResponseEntity<ApiErrorResponse>(apiResponse, HttpStatus.NOT_FOUND);
+//    }
 
     @ExceptionHandler({NotFoundException.class})
     public ResponseEntity<ApiErrorResponse> objectNotFound(NotFoundException ex, WebRequest request) {

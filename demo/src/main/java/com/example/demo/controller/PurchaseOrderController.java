@@ -7,7 +7,8 @@ import com.example.demo.model.CreateOrder;
 import com.example.demo.model.Product;
 import com.example.demo.model.PurchaseOrder;
 import com.example.demo.service.ConsumerService;
-import com.example.demo.service.ProductService;
+//import com.example.demo.service.ProductService;
+import com.example.demo.service.ProductV2Service;
 import com.example.demo.service.PurchaseOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,26 +33,28 @@ public class PurchaseOrderController {
     ConsumerService consumerService;
 
     @Autowired
-    ProductService productService;
+    ProductV2Service productService;
 
     @ResponseStatus(value= HttpStatus.NOT_FOUND, reason="No such Consumer")  // 404
     public class OrderNotFoundException extends RuntimeException {
         // ...
     }
 
-//    @GetMapping(path = {"api/v1/orders",
-//                        "api/v2/orders"})
-    @GetMapping(path = "api/v1/orders")
+    @GetMapping(path = {"api/v1/orders",
+                        "api/v2/orders"})
+//    @GetMapping(path = "api/v1/orders")
     public List<PurchaseOrder> getPurchaseOrders(){
-        return purchaseOrderService.getPurchaseOrders().stream().filter((p) -> p.getProductV2()==null).collect(Collectors.toList());
+        return purchaseOrderService.getPurchaseOrders()/*.stream().filter((p) -> p.getProductV2()==null).collect(Collectors.toList())*/;
+
     }
 
-    @GetMapping(path = "api/v2/orders")
-    public List<PurchaseOrder> getPurchaseOrdersV2(){
-        return purchaseOrderService.getPurchaseOrders().stream().filter((p) -> p.getProduct()==null).collect(Collectors.toList());
-}
+//    @GetMapping(path = "api/v2/orders")
+//    public List<PurchaseOrder> getPurchaseOrdersV2(){
+//        return purchaseOrderService.getPurchaseOrders().stream().filter((p) -> p.getProduct()==null).collect(Collectors.toList());
+//}
 
-    @PostMapping(path = "api/v1/orders")
+    @PostMapping(path = {"api/v1/orders",
+                        "api/v2/orders"})
     public void registerNewPurchaseOrder (@RequestBody CreateOrder createOrder) throws CustomRestServiceException, NotFoundException {
 //        PurchaseOrder po = new PurchaseOrder();
 //        po.setDescription(createOrder.getDescription());
@@ -76,10 +79,10 @@ public class PurchaseOrderController {
         purchaseOrderService.addNewPurchaseOrder(createOrder) ;
     }
 
-    @PostMapping(path = "api/v2/orders")
-    public void registerNewPurchaseOrderV2 (@RequestBody CreateOrder createOrder) throws CustomRestServiceException, NotFoundException {
-        purchaseOrderService.addNewPurchaseOrderV2(createOrder);
-    }
+//    @PostMapping(path = "api/v2/orders")
+//    public void registerNewPurchaseOrderV2 (@RequestBody CreateOrder createOrder) throws CustomRestServiceException, NotFoundException {
+//        purchaseOrderService.addNewPurchaseOrderV2(createOrder);
+//    }
 }
 
 
